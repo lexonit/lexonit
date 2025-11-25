@@ -5,7 +5,8 @@ import { Button, Card, GlowingCard, Badge, FloatingDock, LampContainer } from '.
 import { Button as MovingBorderButton } from '../components/ui/moving-border';
 import { ChatDemo, PricingCalculator, AuditTool, WorldMapSection, AnimatedTestimonialsDemo } from '../components/features';
 import { SERVICES, TECH_STACK, CASE_STUDIES, TESTIMONIALS, HERO_AVATARS } from '../constants';
-import { ArrowRight, Play, Star, CheckCircle, Globe, Code2, FileCode, Wind, Bot, Database, CreditCard, Cloud, Triangle, Move } from 'lucide-react';
+import { ArrowRight, Play, Star, CheckCircle, Globe, Code2, FileCode, Wind, Bot, Database, CreditCard, Cloud, Triangle, Move, DollarSign, Zap, TrendingDown } from 'lucide-react';
+import { HomePageSEO } from '../components/seo';
 
 const container = {
   hidden: { opacity: 0 },
@@ -21,10 +22,10 @@ const item = {
 };
 
 const HERO_TITLES = [
-  "Business with AI",
-  "Workflow with Agents",
-  "Growth with Automation",
-  "Scale with Intelligence"
+  "Small Business",
+  "Startup Growth",
+  "Team Productivity",
+  "Customer Service"
 ];
 
 const techStackItems = [
@@ -52,6 +53,27 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
 
   return (
     <div className="overflow-x-hidden bg-slate-50 dark:bg-black transition-colors duration-300">
+      <HomePageSEO />
+      
+      {/* Price Banner - Above the fold for SEO */}
+      <div className="bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-700 dark:to-green-700 py-3 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <p className="text-white font-bold text-sm md:text-base flex items-center justify-center gap-2 flex-wrap">
+            <TrendingDown className="w-5 h-5 animate-bounce" />
+            <span>💰 LOWEST PRICES IN DUBAI</span>
+            <span className="hidden sm:inline">|</span>
+            <span>AI Chatbot AED 499</span>
+            <span className="hidden sm:inline">|</span>
+            <span>Website AED 799</span>
+            <span className="hidden sm:inline">|</span>
+            <span>Automation AED 2,999</span>
+            <span className="hidden md:inline">|</span>
+            <span className="hidden md:inline">⚡ 48hr Delivery</span>
+          </p>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20">
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -65,9 +87,9 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Badge variant="purple" className="mb-6">UAE's Leading AI Agency</Badge>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white leading-tight mb-6 min-h-[160px] md:min-h-[180px]">
-              Future-Proof Your <br />
+            <Badge variant="purple" className="mb-6">🏆 Dubai's Most Affordable AI Agency</Badge>
+            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white leading-tight mb-6">
+              <span className="block">Affordable AI That</span>
               <AnimatePresence mode="wait">
                 <motion.span 
                   key={titleIndex}
@@ -75,31 +97,52 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-600 dark:from-violet-400 dark:to-cyan-400"
+                  className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 min-h-[80px]"
                 >
-                  {HERO_TITLES[titleIndex]}
+                  Transforms Your {HERO_TITLES[titleIndex]}
                 </motion.span>
               </AnimatePresence>
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg leading-relaxed">
-              We build intelligent chatbots, automation systems, and high-performance websites that drive growth for startups and enterprises.
+            <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-lg leading-relaxed">
+              Premium AI solutions at budget-friendly prices. Get AI chatbots, professional websites, and business automation starting from just <span className="font-bold text-emerald-600 dark:text-emerald-400">AED 499</span>. Perfect for startups & SMEs in UAE.
             </p>
+            
+            {/* Trust Signals */}
+            <div className="flex flex-wrap gap-4 mb-8 items-center">
+              <div className="flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/30 px-4 py-2 rounded-full">
+                <DollarSign className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">From AED 499</span>
+              </div>
+              <div className="flex items-center gap-2 bg-blue-50 dark:bg-blue-950/30 px-4 py-2 rounded-full">
+                <Zap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">48hr Delivery</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                <span className="text-sm font-medium text-slate-600 dark:text-slate-400 ml-2">4.9/5 (127+ reviews)</span>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4">
+              <MovingBorderButton
+                borderRadius="1.75rem"
+                className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-600 text-white border-emerald-700 dark:border-emerald-700 font-semibold"
+                containerClassName="w-full sm:w-56 h-14"
+                onClick={() => onNavigate('/pricing')}
+              >
+                View Cheap Prices 💰
+              </MovingBorderButton>
               <Button 
                 variant="outline" 
                 className="w-full sm:w-48 h-14 rounded-[1.75rem] text-base font-medium border-slate-300 dark:border-slate-700" 
-                onClick={() => onNavigate('/offers')}
-              >
-                View Our Offers
-              </Button>
-              <MovingBorderButton
-                borderRadius="1.75rem"
-                className="bg-slate-900 dark:bg-slate-950 text-white border-slate-800 dark:border-slate-800 font-semibold"
-                containerClassName="w-full sm:w-48 h-14"
                 onClick={() => onNavigate('/contact')}
               >
-                Book a Free Call <ArrowRight className="ml-2" size={18} />
-              </MovingBorderButton>
+                Get Free Quote
+              </Button>
             </div>
             
             <div className="mt-12 flex items-center gap-4 text-slate-500 dark:text-slate-500 text-sm font-medium">
