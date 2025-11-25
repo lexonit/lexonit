@@ -37,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPath, theme, 
                 <img
                   src={theme === 'dark' ? '/logo/logo-light.svg' : '/logo/logo-dark.svg'}
                   alt="LexonIT"
-                  className="h-15 md:h-15"
+                  className="h-20 md:h-20"
                 />
             </div>
             
