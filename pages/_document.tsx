@@ -11,15 +11,18 @@ export default function Document() {
               (function() {
                 try {
                   const theme = localStorage.getItem('theme');
-                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  const shouldBeDark = theme === 'dark' || (!theme && prefersDark);
+                  // Default to dark mode if no theme is saved
+                  const shouldBeDark = theme === 'dark' || theme === null;
                   
                   if (shouldBeDark) {
                     document.documentElement.classList.add('dark');
                   } else {
                     document.documentElement.classList.remove('dark');
                   }
-                } catch (e) {}
+                } catch (e) {
+                  // Fallback to dark mode on error
+                  document.documentElement.classList.add('dark');
+                }
               })();
             `,
           }}

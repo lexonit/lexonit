@@ -9,16 +9,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
-  // Initialize theme from localStorage or system preference on mount
+  // Initialize theme from localStorage or default to dark mode
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
     if (savedTheme) {
       setTheme(savedTheme);
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
     }
+    // If no saved theme, keep default dark mode (no need to change)
   }, []);
 
   useEffect(() => {
