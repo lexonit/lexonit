@@ -56,7 +56,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
       <HomePageSEO />
       
       {/* Price Banner - Above the fold for SEO */}
-      <div className="bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-700 dark:to-green-700 py-3 text-center relative overflow-hidden">
+      {/* <div className="bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-700 dark:to-green-700 py-3 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <p className="text-white font-bold text-sm md:text-base flex items-center justify-center gap-2 flex-wrap">
@@ -72,7 +72,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             <span className="hidden md:inline">⚡ 48hr Delivery</span>
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20">
