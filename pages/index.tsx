@@ -54,7 +54,6 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
   return (
     <div className="overflow-x-hidden bg-slate-50 dark:bg-black transition-colors duration-300">
       <HomePageSEO />
-      
       {/* Price Banner - Above the fold for SEO */}
       {/* <div className="bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-700 dark:to-green-700 py-3 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
