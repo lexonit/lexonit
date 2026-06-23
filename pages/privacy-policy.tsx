@@ -306,7 +306,7 @@ const PrivacyPolicyPage = ({ onNavigate }: PrivacyPolicyPageProps) => {
           </h2>
           <div className="space-y-4 text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
             <p>
-              LexonIT ("we," "our," or "us") is a UAE-based technology company providing AI automation, web development, and digital solutions. This Privacy Policy describes how we collect, use, disclose, and safeguard your information when you visit our website at{' '}
+              LexonIT ("we," "our," or "us") is a India-based technology company providing AI automation, web development, and digital solutions. This Privacy Policy describes how we collect, use, disclose, and safeguard your information when you visit our website at{' '}
               <span className="font-semibold text-violet-600 dark:text-violet-400">lexonit.com</span>{' '}
               or engage with our services.
             </p>
@@ -314,7 +314,7 @@ const PrivacyPolicyPage = ({ onNavigate }: PrivacyPolicyPageProps) => {
               This policy applies to all users of our website and clients of our services. By accessing or using our services, you acknowledge that you have read, understood, and agree to the practices described in this Privacy Policy. If you do not agree, please discontinue use of our services.
             </p>
             <p>
-              We are committed to complying with applicable data protection laws, including the UAE Federal Decree-Law No. 45 of 2021 on Personal Data Protection (PDPL) and the EU General Data Protection Regulation (GDPR) where applicable.
+              We are committed to complying with applicable data protection laws, including the India Federal Decree-Law No. 45 of 2021 on Personal Data Protection (PDPL) and the EU General Data Protection Regulation (GDPR) where applicable.
             </p>
           </div>
         </motion.div>
@@ -355,7 +355,7 @@ const PrivacyPolicyPage = ({ onNavigate }: PrivacyPolicyPageProps) => {
             </div>
             <div className="bg-white/10 rounded-xl px-5 py-3 text-slate-300">
               <span className="block text-xs text-slate-500 uppercase tracking-wider mb-1">Location</span>
-              <span className="font-semibold text-white">UAE</span>
+              <span className="font-semibold text-white">India</span>
             </div>
           </div>
           <p className="mt-6 text-xs text-slate-500">

@@ -79,6 +79,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPath, theme, 
                         </div>
                     </MenuItem>
 
+                    <MenuItem setActive={setActive} active={active} item="Products">
+                        <div className="text-sm p-4 min-w-[260px]">
+                            <ProductItem
+                                title="Sakhi Safety"
+                                href="/products/sakhi-safety"
+                                src="/sakhi-safety-app.png"
+                                description="Your all-in-one personal safety companion app."
+                                onClick={() => handleNav('/products/sakhi-safety')}
+                            />
+                            <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/10">
+                                <HoveredLink onClick={() => handleNav('/products')} href="/products">View All Products →</HoveredLink>
+                            </div>
+                        </div>
+                    </MenuItem>
                     <div onClick={() => handleNav('/offers')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">Offers</div>
                     <div onClick={() => handleNav('/pricing')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">Pricing</div>
                     <div onClick={() => handleNav('/blog')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">Blog</div>
