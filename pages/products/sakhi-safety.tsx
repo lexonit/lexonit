@@ -579,7 +579,7 @@ const SakhiLandingPage: React.FC<SakhiLandingProps> = ({ onNavigate }) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="relative"
+              className="relative max-w-[280px] lg:max-w-[340px] mx-auto"
             >
               <div className="absolute -inset-8 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-full blur-3xl" />
               <PhoneMockup src="/sakhi/sakhi3.png" alt="Live location tracking" delay={0} />
@@ -597,7 +597,7 @@ const SakhiLandingPage: React.FC<SakhiLandingProps> = ({ onNavigate }) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="order-2 lg:order-1 relative"
+              className="order-2 lg:order-1 relative max-w-[360px] lg:max-w-[460px] mx-auto"
             >
               <div className="absolute -inset-8 bg-gradient-to-br from-red-500/10 to-transparent rounded-full blur-3xl" />
               <PhoneMockup src="/sakhi/sakhi4.png" alt="SOS emergency button" delay={0} />
