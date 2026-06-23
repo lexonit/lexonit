@@ -32,6 +32,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Integrations', path: '/services/integrations' },
     ]
   },
+  { label: 'Products', path: '/products' },
   { label: 'Offers', path: '/offers' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Blog', path: '/blog' },
@@ -81,14 +82,14 @@ export const SERVICES: Service[] = [
 export const OFFERS: Offer[] = [
   {
     title: '48-Hour Website',
-    priceRange: 'AED 799 - 1,299',
+    priceRange: 'IND 799 - 1,299',
     delivery: '48 Hours',
     features: ['5-Page Professional Site', 'Hosting & Domain Setup', 'SEO Basics', 'Mobile Responsive', 'WhatsApp Button'],
     color: 'blue'
   },
   {
     title: 'Website + AI Automation',
-    priceRange: 'AED 2,999 - 7,999',
+    priceRange: 'IND 2,999 - 7,999',
     delivery: '1-2 Weeks',
     features: ['Premium Website', 'Custom AI Chatbot', 'Lead Capture Automation', 'Payment Gateway', 'CRM Integration'],
     recommended: true,
@@ -96,7 +97,7 @@ export const OFFERS: Offer[] = [
   },
   {
     title: 'AI Chatbot Setup',
-    priceRange: 'AED 499 - 999',
+    priceRange: 'IND 499 - 999',
     delivery: '3 Days',
     features: ['WhatsApp & Web Support', 'Custom Knowledge Base', '24/7 Auto-Reply', 'Human Handover', 'Conversation Analytics'],
     color: 'purple'
@@ -131,7 +132,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Faisal Khan',
     role: 'Founder',
     company: 'TechFlow Logistics',
-    content: 'The automation workflow they set up saves us 20 hours a week on manual data entry. Highly recommended for UAE startups.',
+    content: 'The automation workflow they set up saves us 20 hours a week on manual data entry. Highly recommended for India startups.',
     rating: 5
   }
 ];
@@ -144,7 +145,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     description: 'Implemented a WhatsApp bot that pre-qualifies tenants and schedules viewings automatically.'
   },
   {
-    title: 'Dubai Bistro Launch',
+    title: 'Bengaluru Bistro Launch',
     category: 'Web Development',
     metric: '2k+ Visitors',
     description: 'Launched a high-speed Next.js site in 48 hours for a grand opening, handling massive traffic spikes.'
@@ -159,10 +160,11 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export const TEAM: TeamMember[] = [
   {
-    name: 'Anshul Bhaduria',
+    name: 'Davood Khan',
     role: 'Software Engineer',
-    bio: 'Full-stack developer with expertise in Next.js, React, and AI integration. Passionate about building scalable web applications.',
-    image: '/team/Anshul Bhaduria.jpg'
+    bio: 'AI Engineer, Full Stack Developer, and App Developer specializing in AI Agents, React, React Native, and Node.js. Building intelligent, scalable digital products.',
+    image: '/team/davood.jpeg',
+    imagePosition: 'object-top'
   },
   {
     name: 'Imran',
@@ -192,7 +194,8 @@ export const TEAM: TeamMember[] = [
     name: 'Shaik Sadhik',
     role: 'Software Engineer',
     bio: 'Mobile app developer with React Native expertise. Creates cross-platform solutions for iOS and Android.',
-    image: '/team/Shaik Sadhik.jpeg'
+    image: '/team/Shaik Sadhik.jpeg',
+    imagePosition: 'object-top'
   },
   {
     name: 'Suraj Baride',
@@ -242,7 +245,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: '3',
     title: 'How We Built a Chatbot That Reduced Support Tickets by 70%',
-    excerpt: 'A deep dive into the RAG architecture and prompt engineering techniques we used for a leading UAE real estate firm.',
+    excerpt: 'A deep dive into the RAG architecture and prompt engineering techniques we used for a leading India real estate firm.',
     date: 'Oct 12, 2024',
     author: {
       name: 'Sarah Al-Fayed',

@@ -122,7 +122,7 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
               <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                 <p>
                   <strong>Sakhi Safety</strong> is a personal safety application developed and published by{' '}
-                  <strong>LexonIT</strong>, a UAE-based technology company. The app is designed to empower users —
+                  <strong>LexonIT</strong>, a India-based technology company. The app is designed to empower users —
                   particularly women, students, and solo travellers — with instant emergency tools including one-tap SOS,
                   real-time location sharing, trusted contact alerts, safety timers, and more.
                 </p>
@@ -609,7 +609,7 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
                 { label: 'App Package ID', value: APP_ID, icon: Key },
                 { label: 'Email', value: 'hr@lexonit.com', icon: Mail },
                 { label: 'Platform', value: 'Google Play Store (Android)', icon: Globe },
-                { label: 'Company Location', value: 'UAE', icon: MapPin },
+                { label: 'Company Location', value: 'India', icon: MapPin },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -654,7 +654,7 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
             >
               LexonIT
             </button>
-            {' '}— UAE's Leading AI & Software Development Company
+            {' '}— India's Leading AI & Software Development Company
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs">

@@ -36,7 +36,7 @@ export const BlogPage = ({ onNavigate }: { onNavigate: (path: string) => void })
           Latest AI <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-500">Intelligence</span>
         </h1>
         <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl">
-          Deep dives into artificial intelligence, software architecture, and the future of work in the UAE.
+          Deep dives into artificial intelligence, software architecture, and the future of work in the India.
         </p>
       </div>
 

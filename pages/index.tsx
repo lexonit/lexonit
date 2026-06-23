@@ -60,7 +60,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
         <div className="container mx-auto px-4 relative z-10">
           <p className="text-white font-bold text-sm md:text-base flex items-center justify-center gap-2 flex-wrap">
             <TrendingDown className="w-5 h-5 animate-bounce" />
-            <span>💰 LOWEST PRICES IN DUBAI</span>
+            <span>💰 LOWEST PRICES IN BENGALURU</span>
             <span className="hidden sm:inline">|</span>
             <span>AI Chatbot AED 499</span>
             <span className="hidden sm:inline">|</span>
@@ -86,7 +86,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Badge variant="purple" className="mb-6">🏆 Dubai's Most Affordable AI Agency</Badge>
+            <Badge variant="purple" className="mb-6">🏆 Bengaluru's Most Affordable AI Agency</Badge>
             <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white leading-tight mb-6">
               <span className="block">Affordable AI That</span>
               <AnimatePresence mode="wait">
@@ -103,7 +103,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
               </AnimatePresence>
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-lg leading-relaxed">
-              Premium AI solutions at budget-friendly prices. Get AI chatbots, professional websites, and business automation starting from just <span className="font-bold text-emerald-600 dark:text-emerald-400">AED 499</span>. Perfect for startups & SMEs in UAE.
+              Premium AI solutions at budget-friendly prices. Get AI chatbots, professional websites, and business automation starting from just <span className="font-bold text-emerald-600 dark:text-emerald-400">AED 499</span>. Perfect for startups & SMEs in India.
             </p>
             
             {/* Trust Signals */}
@@ -204,7 +204,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Our Expertise</h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Comprehensive digital solutions tailored for the modern UAE market.
+              Comprehensive digital solutions tailored for the modern India market.
             </p>
           </div>
 

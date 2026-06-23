@@ -71,12 +71,7 @@ export const ContactPage = () => {
                            Sy 26, Bharathi Nagar, Krishnarajapuram, Bengaluru, Karnataka 560049, India
                         </p>
                      </div>
-                     <div>
-                        <p className="text-xs font-bold text-violet-600 dark:text-violet-400 uppercase tracking-wider mb-1">UAE Office</p>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm">
-                           Business Bay, Dubai, UAE
-                        </p>
-                     </div>
+
                   </div>
                 </div>
               </div>
