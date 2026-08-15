@@ -538,65 +538,42 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
             <div className="p-4 mb-2 bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800/30 rounded-xl flex items-start gap-3">
               <AlertTriangle size={16} className="text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
               <p className="text-sm text-rose-700 dark:text-rose-300">
-                <strong>Google Play Compliant:</strong> Sakhi Safety provides both an in-app account deletion option and an email-based request method, in accordance with Google Play's User Data policy.
+                <strong>Google Play Compliant:</strong> Sakhi Safety Guardian provides an in-app account-deletion option and an email-based account-deletion request method.
               </p>
             </div>
 
             <SubSection title="How to Delete Your Account" icon={Trash2}>
-              <p>You can permanently delete your Sakhi Safety account using either of the following methods:</p>
+              <p>Users can permanently delete their Sakhi Safety Guardian account in either of these ways:</p>
               <ul>
                 <li>
-                  <strong>In-App:</strong> Open Sakhi Safety → Go to <strong>Profile / Settings</strong> → Tap <strong>Account</strong> → Select <strong>Delete Account</strong> → Confirm deletion. The account is deactivated immediately upon confirmation.
+                  <strong>Option 1 — In the app:</strong> Open Sakhi Safety Guardian → <strong>Safety tab</strong> → scroll to the <strong>Danger Zone</strong> → tap <strong>Delete Account</strong> → confirm deletion.
                 </li>
                 <li>
-                  <strong>By Email:</strong> Send a deletion request to <strong>hr@lexonit.com</strong> from the email address registered with your account. Include "Account Deletion Request – Sakhi Safety" in the subject line. We will process your request within <strong>30 days</strong> and send you a confirmation email once completed.
+                  <strong>Option 2 — By email:</strong> Send an email from the email address registered with Sakhi Safety Guardian to <strong>securesakhi@gmail.com</strong> with the subject line <strong>"Delete my Sakhi account"</strong>. We will confirm and process eligible email deletion requests within <strong>30 days</strong>.
                 </li>
               </ul>
             </SubSection>
 
-            <SubSection title="Data Deleted Upon Account Removal" icon={Database}>
-              <p>When your account is deleted, the following data is permanently and irreversibly removed from our systems:</p>
+            <SubSection title="Data Deleted When an Account Is Removed" icon={Database}>
+              <p>When an account is deleted, the following data is permanently removed from active systems:</p>
               <ul>
-                <li><strong>User profile</strong> — your name, email address, and bcrypt-hashed password</li>
-                <li><strong>Trusted contacts</strong> — all entries from the <code className="text-xs bg-slate-100 dark:bg-slate-800 px-1 rounded">trusted_contacts</code> table linked to your account</li>
-                <li><strong>Location data</strong> — all GPS records from the <code className="text-xs bg-slate-100 dark:bg-slate-800 px-1 rounded">user_locations</code> table</li>
-                <li><strong>Emergency logs</strong> — all SOS event history from the <code className="text-xs bg-slate-100 dark:bg-slate-800 px-1 rounded">emergency_logs</code> table (subject to legal retention exceptions below)</li>
-                <li><strong>Safety timer sessions</strong> — all records from the <code className="text-xs bg-slate-100 dark:bg-slate-800 px-1 rounded">safety_checks</code> table</li>
-                <li><strong>Authentication tokens</strong> — all active sessions are immediately invalidated</li>
-              </ul>
-            </SubSection>
-
-            <SubSection title="Data That May Be Retained" icon={Lock}>
-              <p>In limited circumstances, certain data may be retained after account deletion:</p>
-              <ul>
-                <li><strong>Legal compliance:</strong> Emergency logs that are subject to an ongoing legal investigation, court order, or law enforcement request may be retained for the duration required by applicable law</li>
-                <li><strong>Backup purge:</strong> Deleted data may persist in encrypted system backups for up to <strong>90 days</strong> before being permanently overwritten. During this period the data is not accessible for any operational purpose</li>
-                <li><strong>Aggregated analytics:</strong> Anonymised, non-identifiable statistical data (e.g., total SOS count) may be retained indefinitely as it cannot be linked back to you</li>
+                <li>Account and authentication record</li>
+                <li>User profile information, including name and email address</li>
+                <li>Trusted emergency contacts</li>
+                <li>Location-history records used by live tracking</li>
+                <li>Emergency SOS logs</li>
+                <li>Safety-timer records</li>
+                <li>Active authentication sessions and access tokens</li>
               </ul>
             </SubSection>
 
             <SubSection title="Effect of Account Deletion" icon={AlertTriangle}>
               <ul>
-                <li>All safety features (SOS, live tracking, Safety Timer) will immediately stop working once the account is deleted</li>
-                <li>Your trusted contacts will no longer receive alerts on your behalf</li>
-                <li>Account deletion is <strong>irreversible</strong> — deleted data cannot be recovered. If you wish to use Sakhi Safety again, you will need to create a new account</li>
-                <li>Uninstalling the app alone does <strong>not</strong> delete your account or associated data from our servers. You must follow the deletion steps above</li>
+                <li>Account deletion is <strong>permanent</strong> and cannot be undone</li>
+                <li>After deletion, the user can no longer sign in or use safety features connected to that account</li>
+                <li>Trusted contacts will no longer receive SOS alerts from that account</li>
+                <li>Uninstalling the app alone does <strong>not</strong> delete the account or associated server data. Use one of the deletion methods above</li>
               </ul>
-            </SubSection>
-
-            <SubSection title="Deletion Timeline" icon={RefreshCw}>
-              <div className="space-y-2">
-                {[
-                  { step: 'Immediate', detail: 'Account deactivated, all sessions invalidated, app access revoked' },
-                  { step: 'Within 30 days', detail: 'All personal data permanently deleted from active databases' },
-                  { step: 'Within 90 days', detail: 'Data purged from all encrypted system backups' },
-                ].map((row, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
-                    <span className="flex-shrink-0 text-xs font-bold text-rose-600 dark:text-rose-400 w-28">{row.step}</span>
-                    <span className="text-xs text-slate-600 dark:text-slate-400">{row.detail}</span>
-                  </div>
-                ))}
-              </div>
             </SubSection>
           </PolicyBlock>
 
