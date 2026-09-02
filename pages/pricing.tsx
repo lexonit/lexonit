@@ -1,25 +1,9 @@
 
-import React, { useEffect, useMemo, useState } from 'react';
-import type { GetServerSideProps } from 'next';
+import React, { useState } from 'react';
 import { PRICING_PLANS, PRICING_FEATURES, PRICING_FAQS } from '../constants';
 import { Button, Card, Badge } from '../components/ui';
 import { Check, HelpCircle, Zap, Minus, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { getCurrencyForCountry, formatPriceInCurrency } from '../lib/currency';
-
-export const getServerSideProps: GetServerSideProps = async ({ req, query }) => {
-  // Vercel adds this header at the edge for every request it proxies.
-  // It's absent in local dev, where pricing falls back to USD.
-  let countryCode = (req.headers['x-vercel-ip-country'] as string) || null;
-
-  // Dev-only override so country pricing can be previewed on localhost,
-  // e.g. http://localhost:3000/pricing?country=IN
-  if (process.env.NODE_ENV !== 'production' && typeof query.country === 'string') {
-    countryCode = query.country;
-  }
-
-  return { props: { countryCode } };
-};
 
 // Helper to render values (boolean, string, check)
 const FeatureValue = ({ value, highlight }: { value: any, highlight: boolean }) => {
@@ -36,35 +20,14 @@ const FeatureValue = ({ value, highlight }: { value: any, highlight: boolean }) 
   return <span className={`font-medium text-sm ${highlight ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400'}`}>{value}</span>;
 };
 
-export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: string) => void; countryCode?: string | null }) => {
+export const PricingPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => {
   const [annual, setAnnual] = useState(true);
-  const [resolvedCountry, setResolvedCountry] = useState(countryCode ?? null);
-
-  useEffect(() => {
-    // Vercel's geo header (server-detected countryCode) is only present on
-    // the deployed site. When it's missing — e.g. on localhost, or any
-    // non-Vercel host — fall back to a client-side IP lookup so pricing
-    // still localizes to the visitor's real country.
-    if (countryCode) return;
-    let cancelled = false;
-    fetch('https://ipapi.co/json/')
-      .then(res => res.json())
-      .then(data => {
-        if (!cancelled && data?.country_code) setResolvedCountry(data.country_code);
-      })
-      .catch(() => {
-        // Silently keep the USD fallback if the lookup fails.
-      });
-    return () => { cancelled = true; };
-  }, [countryCode]);
-
-  const currency = useMemo(() => getCurrencyForCountry(resolvedCountry), [resolvedCountry]);
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300 font-sans">
       
       {/* Hero */}
-      <section className="container mx-auto px-6 text-center mb-16">
+      <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="container mx-auto px-6 text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
           Plans & Pricing
         </h1>
@@ -85,10 +48,10 @@ export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: st
             Yearly <span className="text-emerald-500 text-xs ml-1 font-bold">-20%</span>
           </span>
         </div>
-      </section>
+      </motion.section>
 
       {/* DESKTOP: PRICING TABLE */}
-      <section className="hidden lg:block container mx-auto px-6 mb-24 overflow-x-auto">
+      <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="hidden lg:block container mx-auto px-6 mb-24 overflow-x-auto">
         <div className="min-w-[1000px]">
           {/* Sticky Header Row */}
           <div className="grid grid-cols-5 gap-4 sticky top-20 bg-slate-50/95 dark:bg-black/95 backdrop-blur-md z-20 py-6 border-b border-slate-200 dark:border-slate-800">
@@ -114,7 +77,10 @@ export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: st
                       <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">{plan.name}</h3>
                       <div className="flex items-baseline justify-center gap-0.5 mb-1">
                         {typeof price === 'number' ? (
-                           <span className="text-3xl font-bold text-slate-900 dark:text-white">{formatPriceInCurrency(price, currency)}</span>
+                           <>
+                             <span className="text-sm font-medium text-slate-500">$</span>
+                             <span className="text-3xl font-bold text-slate-900 dark:text-white">{price}</span>
+                           </>
                         ) : (
                            <span className="text-3xl font-bold text-slate-900 dark:text-white">{price}</span>
                         )}
@@ -168,10 +134,10 @@ export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: st
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* MOBILE: CARDS VIEW */}
-      <section className="lg:hidden container mx-auto px-6 mb-24">
+      <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="lg:hidden container mx-auto px-6 mb-24">
         <div className="space-y-8">
           {PRICING_PLANS.map((plan) => {
             const price = typeof plan.price === 'number' 
@@ -190,7 +156,7 @@ export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: st
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
                     <div className="flex items-center justify-center gap-1 mb-1">
                       <span className="text-4xl font-bold text-slate-900 dark:text-white">
-                        {typeof price === 'number' ? formatPriceInCurrency(price, currency) : price}
+                        {typeof price === 'number' ? price : price}
                       </span>
                       {typeof price === 'number' && <span className="text-slate-500 text-sm">/mo</span>}
                     </div>
@@ -232,10 +198,10 @@ export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: st
             );
           })}
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
-      <section className="container mx-auto px-6 max-w-3xl">
+      <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="container mx-auto px-6 max-w-3xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
           <p className="text-slate-600 dark:text-slate-400">Everything you need to know about our pricing and billing.</p>
@@ -269,10 +235,11 @@ export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: st
           <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">Our team is available to answer any questions about features, trials, or enterprise needs.</p>
           <Button variant="outline" onClick={() => onNavigate('/contact')}>Contact Support</Button>
         </div>
-      </section>
+      </motion.section>
 
     </div>
   );
 };
 
 export default PricingPage;
+

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 
 import React from 'react';
 import { OFFERS } from '../constants';
@@ -86,3 +87,4 @@ export const OffersPage = ({ onNavigate }: { onNavigate: (path: string) => void 
 };
 
 export default OffersPage;
+

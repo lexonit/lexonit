@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button, Card, GlowingCard, Badge, FloatingDock, LampContainer } from '../components/ui';
+import { Button, Card, GlowingCard, Badge, FloatingDock, LampContainer, FadeIn } from '../components/ui';
 import { Button as MovingBorderButton } from '../components/ui/moving-border';
 import { ChatDemo, PricingCalculator, AuditTool, WorldMapSection, AnimatedTestimonialsDemo } from '../components/features';
 import { SERVICES, TECH_STACK, CASE_STUDIES, TESTIMONIALS, HERO_AVATARS } from '../constants';
@@ -60,7 +60,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
         <div className="container mx-auto px-4 relative z-10">
           <p className="text-white font-bold text-sm md:text-base flex items-center justify-center gap-2 flex-wrap">
             <TrendingDown className="w-5 h-5 animate-bounce" />
-            <span>💰 LOWEST PRICES IN BENGALURU</span>
+            <span>💰 LOWEST PRICES IN DUBAI</span>
             <span className="hidden sm:inline">|</span>
             <span>AI Chatbot AED 499</span>
             <span className="hidden sm:inline">|</span>
@@ -75,6 +75,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20">
+<FadeIn>
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-96 h-96 bg-violet-400/20 dark:bg-violet-600/20 rounded-full blur-[128px]" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-400/20 dark:bg-cyan-600/10 rounded-full blur-[128px]" />
@@ -86,7 +87,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Badge variant="purple" className="mb-6">🏆 Bengaluru's Most Affordable AI Agency</Badge>
+            <Badge variant="purple" className="mb-6">🏆 Dubai's Most Affordable AI Agency</Badge>
             <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white leading-tight mb-6">
               <span className="block">Affordable AI That</span>
               <AnimatePresence mode="wait">
@@ -103,7 +104,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
               </AnimatePresence>
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-lg leading-relaxed">
-              Premium AI solutions at budget-friendly prices. Get AI chatbots, professional websites, and business automation starting from just <span className="font-bold text-emerald-600 dark:text-emerald-400">AED 499</span>. Perfect for startups & SMEs in India.
+              Premium AI solutions at budget-friendly prices. Get AI chatbots, professional websites, and business automation starting from just <span className="font-bold text-emerald-600 dark:text-emerald-400">AED 499</span>. Perfect for startups & SMEs in UAE.
             </p>
             
             {/* Trust Signals */}
@@ -186,25 +187,28 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             ))}
           </motion.div>
         </div>
-      </section>
+      </FadeIn></section>
 
       {/* Tech Stack Floating Dock */}
       <section className="py-12 border-y border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/50 backdrop-blur-sm">
+<FadeIn>
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center justify-center gap-6">
              <p className="text-sm font-medium text-slate-500 uppercase tracking-widest">Powering Next-Gen Applications</p>
              <FloatingDock items={techStackItems} />
           </div>
         </div>
-      </section>
+      </FadeIn>
+</section>
 
       {/* Services Grid (Updated with GlowingCard) */}
       <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
+<FadeIn>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Our Expertise</h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Comprehensive digital solutions tailored for the modern India market.
+              Comprehensive digital solutions tailored for the modern UAE market.
             </p>
           </div>
 
@@ -240,10 +244,12 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             ))}
           </motion.div>
         </div>
-      </section>
+      </FadeIn>
+</section>
 
       {/* Success Stories */}
       <section className="py-24 bg-slate-50 dark:bg-black relative overflow-hidden transition-colors duration-300">
+<FadeIn>
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
@@ -266,16 +272,19 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             ))}
           </div>
         </div>
-      </section>
+      </FadeIn>
+</section>
 
       {/* Calculator Section */}
       <section className="py-24 bg-white dark:bg-gradient-to-b dark:from-slate-900 dark:to-black transition-colors duration-300">
+<FadeIn>
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">Instant Price Estimator</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-12">Transparency is key. Calculate your project cost in seconds.</p>
           <PricingCalculator />
         </div>
-      </section>
+      </FadeIn>
+</section>
 
       {/* Free Audit */}
       <section className="py-24 container mx-auto px-6">
@@ -284,11 +293,13 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
 
       {/* Testimonials (Updated to AnimatedTestimonials) */}
       <section className="bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+<FadeIn>
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white text-center">Client Voices</h2>
           <AnimatedTestimonialsDemo />
         </div>
-      </section>
+      </FadeIn>
+</section>
 
       {/* World Map Section (New) */}
       <WorldMapSection />
@@ -323,3 +334,5 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
 };
 
 export default Home;
+
+

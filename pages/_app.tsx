@@ -7,19 +7,17 @@ import { Navbar, Footer, FloatingWhatsApp } from '../components/layout';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
-  // Initialize theme from localStorage or default to dark mode
+  // Initialize theme from localStorage or default to light mode
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
     if (savedTheme) {
       setTheme(savedTheme);
     }
-    // If no saved theme, keep default dark mode (no need to change)
   }, []);
 
   useEffect(() => {
-    // Apply theme class to <html>
     const root = document.documentElement;
     if (theme === 'dark') {
       root.classList.add('dark');
@@ -46,6 +44,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>LexonIT - Smart IT Solutions</title>
+        <link rel="icon" type="image/svg+xml" href="/logo/logo-dark.svg" />
       </Head>
 
       {/* Navigation (fixed) */}

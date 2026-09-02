@@ -527,17 +527,19 @@ export const MenuItem = ({
   active,
   item,
   children,
+  isActive,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
+  isActive?: boolean;
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+        className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${isActive ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}
       >
         {item}
       </motion.p>
@@ -579,7 +581,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border border-transparent dark:bg-black/80 dark:border-white/[0.2] bg-white/80 shadow-input flex justify-center space-x-4 px-8 py-6 backdrop-blur-md"
+      className="relative flex items-center justify-center space-x-4 px-8 py-6"
     >
       {children}
     </nav>
@@ -608,20 +610,20 @@ export const ProductItem = ({
           onClick(); 
         } 
       }} 
-      className="flex space-x-2 group"
+      className="flex space-x-4 group items-start hover:bg-slate-50 dark:hover:bg-white/5 p-2 rounded-xl transition-colors"
     >
       <img
         src={src}
         width={140}
-        height={70}
+        height={80}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-md group-hover:shadow-xl transition-shadow"
+        className="flex-shrink-0 rounded-lg shadow-sm group-hover:shadow-md transition-shadow object-cover h-[80px] w-[120px]"
       />
       <div className="flex flex-col justify-center">
-        <h4 className="text-xl font-bold mb-1 text-black dark:text-white group-hover:text-violet-500 transition-colors">
+        <h4 className="text-base font-bold mb-1 text-black dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
           {title}
         </h4>
-        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
+        <p className="text-slate-500 text-xs max-w-[12rem] dark:text-slate-400 leading-relaxed">
           {description}
         </p>
       </div>
@@ -634,7 +636,7 @@ export const HoveredLink = ({ children, href, onClick, className, ...rest }: any
     <a
       href={href}
       onClick={(e) => { if(onClick) { e.preventDefault(); onClick(); } }}
-      className={cn("text-neutral-600 dark:text-neutral-200 hover:text-black dark:hover:text-white transition-colors block", className)}
+      className={cn("text-slate-500 text-sm dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors block", className)}
       {...rest}
     >
       {children}
@@ -728,4 +730,16 @@ export const MockCalendar = () => (
          </div>
       </div>
    </div>
+);
+
+export const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.6, delay, ease: "easeOut" }}
+    className={className}
+  >
+    {children}
+  </motion.div>
 );
