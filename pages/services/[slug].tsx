@@ -139,6 +139,10 @@ export default function ServiceDetailPage({ onNavigate }: { onNavigate: (path: s
                >
                   <div className={`relative p-6 rounded-2xl ${theme.bg} border ${theme.border} shadow-2xl`}>
                      {data.heroImage ? (
+                        <img src={data.heroImage} alt={data.title} className="w-full h-auto rounded-xl shadow-lg object-cover" />
+                     ) : (
+                        <HeroMockup />
+                     )}
                      <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-900 p-4 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 flex items-center gap-3">
                         <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${theme.gradient} flex items-center justify-center text-white`}>
                            <Sparkles size={20} />
@@ -245,30 +249,64 @@ export default function ServiceDetailPage({ onNavigate }: { onNavigate: (path: s
                   </div>
                </Card>
             </div>
-            
+         </div>
       </motion.section>
 
       {/* Features Grid */}
       <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="py-24 container mx-auto px-6">
          {data.featureDetails ? (
             <div className="grid md:grid-cols-2 gap-8">
-               {data.featureDetails.map((f, i) => (
-                  <div key={i} className="flex flex-col rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all">
-                     {f.image && (
-                        <div className="h-48 w-full relative">
+               {data.featureDetails.map((f, i) => {
+                  const Icon = f.icon || CheckCircle2;
+                  return (
+                     <div key={i} className="flex flex-col rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl transition-all group">
+                        {f.image && (
+                           <div className="h-48 w-full relative overflow-hidden">
+                              <img src={f.image} alt={f.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                           </div>
+                        )}
+                        <div className="p-6 flex-1 flex flex-col">
+                           <div className={`w-12 h-12 rounded-lg ${theme.bg} ${theme.text} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                              <Icon size={24} />
+                           </div>
+                           <h3 className="font-bold text-slate-900 dark:text-white mb-2">{f.title}</h3>
+                           <p className="text-sm text-slate-500">{f.desc}</p>
+                        </div>
+                     </div>
+                  );
+               })}
+            </div>
+         ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+               {data.features.map((feature, i) => (
                   <div key={i} className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-violet-500 transition-colors group">
                      <div className={`w-12 h-12 rounded-lg ${theme.bg} ${theme.text} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                         <CheckCircle2 size={24} />
                      </div>
                      <h3 className="font-bold text-slate-900 dark:text-white mb-2">{feature}</h3>
                      <p className="text-sm text-slate-500">Fully automated and integrated with your existing stack.</p>
+                  </div>
+               ))}
+            </div>
+         )}
+      </motion.section>
+
+      {/* CTA */}
+      <section className={`py-20 bg-gradient-to-r ${theme.gradient}`}>
+         <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to upgrade your workflow?</h2>
+            <p className="text-white/80 mb-8 max-w-2xl mx-auto text-lg">
+               Join over 1,000 IT providers using LexonIT to automate their daily grind.
+            </p>
+            <Button 
+               size="lg" 
                className="!bg-white !text-slate-900 hover:bg-slate-100 border-none"
                onClick={() => onNavigate('/contact')}
             >
                Start Free Trial <ArrowRight className="ml-2" size={16} />
             </Button>
          </div>
-      </motion.section>
+      </section>
 
     </div>
   );
