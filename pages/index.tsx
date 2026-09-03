@@ -74,14 +74,13 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
       </div> */}
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20">
-<FadeIn>
-        <div className="absolute inset-0 z-0 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-96 h-96 bg-violet-400/20 dark:bg-violet-600/20 rounded-full blur-[128px]" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-400/20 dark:bg-cyan-600/10 rounded-full blur-[128px]" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="w-full max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -155,7 +154,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full flex lg:justify-end justify-center lg:pr-12"
+            className="w-full flex justify-center items-center"
           >
             <div className="relative w-full max-w-lg">
               <div className="relative z-10">
@@ -189,7 +188,7 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             </div>
           </motion.div>
         </div>
-      </FadeIn></section>
+      </section>
 
       {/* Tech Stack Floating Dock */}
       <section className="py-12 border-y border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/50 backdrop-blur-sm">
