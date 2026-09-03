@@ -56,22 +56,22 @@ const FloatingParticles = () => (
         key={i}
         className="absolute rounded-full"
         style={{
-          width: Math.random() * 4 + 2,
-          height: Math.random() * 4 + 2,
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
+          width: ((i * 3) % 4) + 2,
+          height: ((i * 3) % 4) + 2,
+          left: `${(i * 17) % 100}%`,
+          top: `${(i * 23) % 100}%`,
           background: i % 3 === 0 ? '#ef4444' : i % 3 === 1 ? '#7c3aed' : '#64748b',
           opacity: 0.4,
         }}
         animate={{
           y: [0, -40, 0],
-          x: [0, Math.random() * 20 - 10, 0],
+          x: [0, (i % 2 === 0 ? 10 : -10), 0],
           opacity: [0.2, 0.6, 0.2],
         }}
         transition={{
-          duration: 3 + Math.random() * 4,
+          duration: 3 + (i % 4),
           repeat: Infinity,
-          delay: Math.random() * 3,
+          delay: (i * 0.3) % 3,
           ease: 'easeInOut',
         }}
       />
