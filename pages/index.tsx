@@ -155,9 +155,9 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full flex lg:justify-end justify-center"
+            className="w-full flex lg:justify-end justify-center lg:pr-12"
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-lg">
               <div className="relative z-10">
                 <ChatDemo />
               </div>
