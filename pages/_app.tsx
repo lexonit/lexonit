@@ -4,10 +4,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import '../styles/globals.css';
 import { Navbar, Footer, FloatingWhatsApp } from '../components/layout';
+import { PageSkeleton, TopProgressBar } from '../components/skeleton';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [isNavigating, setIsNavigating] = useState(false);
 
   // Initialize theme from localStorage or default to light mode
   useEffect(() => {
@@ -28,6 +30,56 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // Pre-fetch all primary routes for instant 0ms transitions
+  useEffect(() => {
+    const topRoutes = [
+      '/',
+      '/services',
+      '/services/it-providers',
+      '/services/hospital-crm-erp',
+      '/services/ai-project-manager',
+      '/services/ai-chat',
+      '/products',
+      '/products/sakhi-safety',
+      '/offers',
+      '/pricing',
+      '/blog',
+      '/about',
+      '/contact'
+    ];
+    topRoutes.forEach((route) => {
+      try {
+        router.prefetch(route);
+      } catch (e) {
+        // Silently catch prefetch errors
+      }
+    });
+  }, [router]);
+
+  // Track router navigation events to show skeleton loader
+  useEffect(() => {
+    const handleStart = (url: string) => {
+      if (url !== router.asPath) {
+        setIsNavigating(true);
+      }
+    };
+    const handleComplete = () => {
+      setIsNavigating(false);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    };
+    const handleError = () => setIsNavigating(false);
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleError);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleError);
+    };
+  }, [router]);
+
   const onNavigate = (path: string) => {
     if (!path) return;
     // If path looks like an external URL, use location.href
@@ -35,7 +87,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       window.location.href = path;
       return;
     }
-    router.push(path);
+    if (path !== router.asPath) {
+      setIsNavigating(true);
+      router.push(path);
+    }
   };
 
   const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
@@ -51,9 +106,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       {/* Navigation (fixed) */}
       <Navbar onNavigate={onNavigate} currentPath={router.pathname} theme={theme} onToggleTheme={toggleTheme} />
 
-      {/* Page content - add top padding so fixed navbar doesn't overlap */}
+      {/* Top progress indicator bar */}
+      {isNavigating && <TopProgressBar />}
+
+      {/* Page content with Skeleton fallback on navigation */}
       <div className="pt-20">
-        <Component {...pageProps} onNavigate={onNavigate} />
+        {isNavigating ? (
+          <PageSkeleton />
+        ) : (
+          <Component {...pageProps} onNavigate={onNavigate} />
+        )}
       </div>
 
       <Footer onNavigate={onNavigate} />
@@ -63,3 +125,4 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
+

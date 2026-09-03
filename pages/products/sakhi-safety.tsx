@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import {
   Shield, MapPin, Users, Bell, Zap, Phone, Navigation,
-  ChevronRight, Star, Download, CheckCircle, ArrowLeft,
+  ChevronRight, Star, Download, CheckCircle,
   AlertCircle, Clock, Eye, Smartphone, Volume2, PhoneCall
 } from 'lucide-react';
 
@@ -207,18 +207,6 @@ const SakhiLandingPage: React.FC<SakhiLandingProps> = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white overflow-x-hidden transition-colors duration-300">
-      {/* Back button */}
-      <motion.button
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.3 }}
-        onClick={() => onNavigate('/products')}
-        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white dark:bg-white/10 backdrop-blur-md border border-slate-200 dark:border-white/20 rounded-full text-slate-900 dark:text-white text-sm font-medium hover:bg-slate-100 dark:hover:bg-white/20 shadow-sm dark:shadow-none transition-all duration-300"
-      >
-        <ArrowLeft size={14} />
-        Products
-      </motion.button>
-
       {/* ──── HERO ──────────────────────────────────────────────── */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Radial red glow background */}
