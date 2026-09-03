@@ -1,4 +1,4 @@
-# 🚀 Lexonit. - AI Development Agency Portfolio
+# 🚀 Lexonit. - AI Development Agency Portfolios
 
 <div align="center">
 
@@ -21,6 +21,7 @@ Lexonit is a modern portfolio website for an AI development agency specializing 
 - 💻 **Web Development** - Next.js, React, and modern web technologies
 - 🎨 **UI/UX Design** - Beautiful, responsive interfaces with Framer Motion animations
 - 🌐 **IT Solutions** - Comprehensive IT provider services for businesses in Bengaluru and India
+- 📱 **Mobile-First Design** - Fully responsive across all devices
 - 📱 **Mobile-First Design** - Fully responsive across all devices
 
 ## ✨ Key Features
