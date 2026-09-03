@@ -38,8 +38,9 @@ export const AnimatedTestimonials = ({
     }
   }, [autoplay]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
+  const randomRotateY = (index: number) => {
+    const rotations = [-8, 5, -6, 10, -3, 7, -9, 4, -5, 8];
+    return rotations[index % rotations.length];
   };
 
   return (
@@ -55,13 +56,13 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: -100,
-                    rotate: randomRotateY(),
+                    rotate: randomRotateY(index),
                   }}
                   animate={{
                     opacity: isActive(index) ? 1 : 0.7,
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
+                    rotate: isActive(index) ? 0 : randomRotateY(index),
                     zIndex: isActive(index)
                       ? 999
                       : testimonials.length + 2 - index,
@@ -71,7 +72,7 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(),
+                    rotate: randomRotateY(index),
                   }}
                   transition={{
                     duration: 0.4,

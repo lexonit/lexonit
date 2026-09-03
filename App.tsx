@@ -18,8 +18,6 @@ import { ChatWidget } from './components/chat-widget';
 import AboutPage from './pages/about';
 import PrivacyPolicyPage from './pages/privacy-policy';
 import SakhiPrivacyPage from './pages/sakhi-privacy';
-import ProductsPage from './pages/products/index';
-import SakhiLandingPage from './pages/products/sakhi-safety';
 
 // Simple Router implementation since we are in a single file environment restriction
 // In a real Next.js app, this would be handled by the file system routing
@@ -43,7 +41,7 @@ const App = () => {
   // Basic SEO Simulation
   useEffect(() => {
     const titles: Record<string, string> = {
-      '/': 'LexonIT | AI & Web Development India',
+      '/': 'LexonIT | AI & Web Development UAE',
       '/services': 'Services | LexonIT',
       '/pricing': 'Pricing | LexonIT',
       '/offers': 'Offers | LexonIT',
@@ -52,9 +50,7 @@ const App = () => {
       '/login': 'Login | LexonIT',
       '/blog': 'Blog | Latest AI Insights',
       '/privacy-policy': 'Privacy Policy | LexonIT',
-      '/sakhi-privacy': 'Sakhi Safety Privacy Policy | LexonIT',
-      '/products': 'Products | LexonIT',
-      '/products/sakhi-safety': 'Sakhi Safety | LexonIT'
+      '/sakhi-privacy': 'Sakhi Safety Privacy Policy | LexonIT'
     };
     
     // Handle Titles for Service Pages
@@ -101,8 +97,6 @@ const App = () => {
       case '/blog': return <BlogPage onNavigate={setCurrentPath} />;
       case '/privacy-policy': return <PrivacyPolicyPage onNavigate={setCurrentPath} />;
       case '/sakhi-privacy': return <SakhiPrivacyPage onNavigate={setCurrentPath} />;
-      case '/products': return <ProductsPage onNavigate={setCurrentPath} />;
-      case '/products/sakhi-safety': return <SakhiLandingPage onNavigate={setCurrentPath} />;
       default: return <Home onNavigate={setCurrentPath} />;
     }
   };

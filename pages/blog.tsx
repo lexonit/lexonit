@@ -36,13 +36,13 @@ export const BlogPage = ({ onNavigate }: { onNavigate: (path: string) => void })
           Latest AI <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-500">Intelligence</span>
         </h1>
         <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl">
-          Deep dives into artificial intelligence, software architecture, and the future of work in the India.
+          Deep dives into artificial intelligence, software architecture, and the future of work in the UAE.
         </p>
       </div>
 
       {/* Featured Post */}
       {featuredPost && filter === 'All' && (
-        <section className="container mx-auto px-6 mb-20">
+        <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="container mx-auto px-6 mb-20">
           <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl group cursor-pointer hover:border-violet-500 transition-colors">
             <div className="grid lg:grid-cols-2">
                <div className="h-64 lg:h-auto overflow-hidden relative">
@@ -83,11 +83,11 @@ export const BlogPage = ({ onNavigate }: { onNavigate: (path: string) => void })
                </div>
             </div>
           </div>
-        </section>
+        </motion.section>
       )}
 
       {/* Filter & Search */}
-      <section className="container mx-auto px-6 mb-12 sticky top-20 z-30">
+      <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="container mx-auto px-6 mb-12 sticky top-20 z-30">
         <div className="bg-white/80 dark:bg-black/80 backdrop-blur-md p-2 rounded-2xl border border-slate-200 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
            <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide">
               {categories.map((cat) => (
@@ -113,10 +113,10 @@ export const BlogPage = ({ onNavigate }: { onNavigate: (path: string) => void })
               />
            </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Blog Grid */}
-      <section className="container mx-auto px-6 mb-24">
+      <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="container mx-auto px-6 mb-24">
          {otherPosts.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                {otherPosts.map((post) => (
@@ -173,10 +173,10 @@ export const BlogPage = ({ onNavigate }: { onNavigate: (path: string) => void })
                <Button variant="outline" className="mt-4" onClick={() => setFilter('All')}>View All Posts</Button>
             </div>
          )}
-      </section>
+      </motion.section>
 
       {/* Newsletter */}
-      <section className="container mx-auto px-6">
+      <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="container mx-auto px-6">
          <div className="relative bg-slate-900 rounded-3xl p-12 overflow-hidden text-center">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-0 pointer-events-none"></div>
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-violet-600/30 rounded-full blur-[100px]"></div>
@@ -205,10 +205,11 @@ export const BlogPage = ({ onNavigate }: { onNavigate: (path: string) => void })
                </form>
             </div>
          </div>
-      </section>
+      </motion.section>
 
     </div>
   );
 };
 
 export default BlogPage;
+

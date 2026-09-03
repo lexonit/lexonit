@@ -29,80 +29,77 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPath, theme, 
   return (
     <>
       {/* Desktop Navbar (Refactored for Responsiveness) */}
-      <div className="hidden lg:flex fixed top-4 inset-x-0 z-50 justify-center pointer-events-none">
-        <div className="w-full max-w-7xl px-6 flex items-center justify-between relative">
+      <div className="hidden lg:flex fixed top-0 inset-x-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-slate-200 dark:border-white/10 transition-colors duration-300">
+        <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             
             {/* Logo (image from public/) */}
-            <div className="pointer-events-auto flex items-center gap-1 cursor-pointer" onClick={() => handleNav('/')}>
+            <div className="flex items-center gap-1 cursor-pointer" onClick={() => handleNav('/')}>
                 <img
                   src={theme === 'dark' ? '/logo/logo-light.svg' : '/logo/logo-dark.svg'}
                   alt="LexonIT"
-                  className="h-20 md:h-20"
+                  className="h-12 md:h-16"
                 />
             </div>
             
             {/* Centered Menu */}
-            <div className="pointer-events-auto absolute left-1/2 top-0 -translate-x-1/2">
+            <div className="flex-1 flex justify-center">
                 <Menu setActive={setActive}>
-                    <div onClick={() => handleNav('/')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">Home</div>
+                    <div onClick={() => handleNav('/')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath === '/' ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Home</div>
                     
-                    <MenuItem setActive={setActive} active={active} item="Services">
-                        <div className="text-sm grid grid-cols-2 gap-10 p-4 min-w-[550px]">
-                            <ProductItem
-                                title="For IT Providers"
-                                href="/services/it-providers"
-                                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400&auto=format&fit=crop"
-                                description="Scale your MSP business with AI employees."
-                                onClick={() => handleNav('/services/it-providers')}
-                            />
-                            <ProductItem
-                                title="AI Project Manager"
-                                href="/services/ai-project-manager"
-                                src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=400&auto=format&fit=crop"
-                                description="Stop babysitting tickets. Let AI manage workflow."
-                                onClick={() => handleNav('/services/ai-project-manager')}
-                            />
-                            <ProductItem
-                                title="AI Chatbots"
-                                href="/services/ai-chat"
-                                src="/other/chatbot.png"
-                                description="24/7 Customer support agents."
-                                onClick={() => handleNav('/services/ai-chat')}
-                            />
-                             <div className="flex flex-col space-y-2 justify-center">
-                                <h4 className="font-bold text-neutral-900 dark:text-neutral-100 mb-1">More Solutions</h4>
-                                <HoveredLink onClick={() => handleNav('/services')} href="/services">All Services</HoveredLink>
-                                <HoveredLink onClick={() => handleNav('/services/ai-workflows')} href="/services/ai-workflows">Automation Workflows</HoveredLink>
-                                <HoveredLink onClick={() => handleNav('/services/ai-dashboards')} href="/services/ai-dashboards">AI Dashboards</HoveredLink>
-                                <HoveredLink onClick={() => handleNav('/services/ai-email')} href="/services/ai-email">Email Assistant</HoveredLink>
+                    <MenuItem setActive={setActive} active={active} item="Services" isActive={currentPath.startsWith('/services')}>
+                        <div className="flex flex-col min-w-[750px]">
+                            <div className="grid grid-cols-2 gap-8 p-6">
+                                <ProductItem
+                                    title="For IT Providers"
+                                    href="/services/it-providers"
+                                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400&auto=format&fit=crop"
+                                    description="Scale your MSP business with AI employees."
+                                    onClick={() => handleNav('/services/it-providers')}
+                                />
+                                <ProductItem
+                                    title="Hospital CRM & ERP"
+                                    href="/services/hospital-crm-erp"
+                                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=400&auto=format&fit=crop"
+                                    description="End-to-end management for patient data & operations."
+                                    onClick={() => handleNav('/services/hospital-crm-erp')}
+                                />
+                                <ProductItem
+                                    title="AI Project Manager"
+                                    href="/services/ai-project-manager"
+                                    src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=400&auto=format&fit=crop"
+                                    description="Stop babysitting tickets. Let AI manage workflow."
+                                    onClick={() => handleNav('/services/ai-project-manager')}
+                                />
+                                <ProductItem
+                                    title="AI Chatbots"
+                                    href="/services/ai-chat"
+                                    src="/other/chatbot.png"
+                                    description="24/7 Customer support agents."
+                                    onClick={() => handleNav('/services/ai-chat')}
+                                />
+                            </div>
+                            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center px-6">
+                                <div className="flex gap-6 items-center">
+                                    <span className="text-sm font-semibold text-slate-900 dark:text-white">More:</span>
+                                    <HoveredLink onClick={() => handleNav('/services/ai-workflows')} href="/services/ai-workflows">Workflows</HoveredLink>
+                                    <HoveredLink onClick={() => handleNav('/services/ai-dashboards')} href="/services/ai-dashboards">Dashboards</HoveredLink>
+                                    <HoveredLink onClick={() => handleNav('/services/ai-email')} href="/services/ai-email">Email Assistant</HoveredLink>
+                                </div>
+                                <HoveredLink onClick={() => handleNav('/services')} href="/services" className="font-bold text-violet-600 dark:text-violet-400">All Services &rarr;</HoveredLink>
                             </div>
                         </div>
                     </MenuItem>
 
-                    <MenuItem setActive={setActive} active={active} item="Products">
-                        <div className="text-sm p-4 min-w-[260px]">
-                            <ProductItem
-                                title="Sakhi Safety"
-                                href="/products/sakhi-safety"
-                                src="/sakhi-safety-app.png"
-                                description="Your all-in-one personal safety companion app."
-                                onClick={() => handleNav('/products/sakhi-safety')}
-                            />
-                            <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/10">
-                                <HoveredLink onClick={() => handleNav('/products')} href="/products">View All Products →</HoveredLink>
-                            </div>
-                        </div>
-                    </MenuItem>
-                    <div onClick={() => handleNav('/offers')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">Offers</div>
-                    <div onClick={() => handleNav('/pricing')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">Pricing</div>
-                    <div onClick={() => handleNav('/blog')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">Blog</div>
-                    <div onClick={() => handleNav('/about')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">About</div>
-                    <div onClick={() => handleNav('/contact')} onMouseEnter={() => setActive(null)} className="cursor-pointer text-black dark:text-white hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium">Contact</div>
+                    <div onClick={() => handleNav('/offers')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/offers') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Offers</div>
+                    <div onClick={() => handleNav('/pricing')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/pricing') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Pricing</div>
+                    <div onClick={() => handleNav('/blog')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/blog') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Blog</div>
+                    <div onClick={() => handleNav('/about')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/about') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>About</div>
+                    <div onClick={() => handleNav('/contact')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/contact') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Contact</div>
                 </Menu>
             </div>
 
             {/* Right Actions */}
-            <div className="pointer-events-auto flex gap-4 items-center">
+            <div className="flex gap-4 items-center">
                 <button 
                     onClick={() => handleNav('/login')} 
                     className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-white transition-colors hidden xl:block"

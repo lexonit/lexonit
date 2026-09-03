@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**AI-Powered Web Solutions | Next.js Development | Bengaluru, India**
+**AI-Powered Web Solutions | Next.js Development | Dubai, UAE**
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.0-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-blue?style=flat-square&logo=react)](https://reactjs.org/)
@@ -20,7 +20,7 @@ Lexonit is a modern portfolio website for an AI development agency specializing 
 - 🤖 **AI Chatbot Development** - Custom GPT-powered chatbots with OpenAI integration
 - 💻 **Web Development** - Next.js, React, and modern web technologies
 - 🎨 **UI/UX Design** - Beautiful, responsive interfaces with Framer Motion animations
-- 🌐 **IT Solutions** - Comprehensive IT provider services for businesses in Bengaluru and India
+- 🌐 **IT Solutions** - Comprehensive IT provider services for businesses in Dubai and UAE
 - 📱 **Mobile-First Design** - Fully responsive across all devices
 - 📱 **Mobile-First Design** - Fully responsive across all devices
 
@@ -144,7 +144,7 @@ The integrated chat widget uses OpenAI's GPT-4o-mini model to answer customer qu
 
 - **WhatsApp**: +971 58 823 0538
 - **Email**: hr@lexonit.com
-- **Location**: Sy 26, Bharathi Nagar, Krishnarajapuram, Bengaluru, Karnataka 560049, India
+- **Location**: Business Bay, Dubai, UAE
 - **Social Media**: 
   - [Twitter/X](https://x.com/LEXONITSOLUTION)
   - [Instagram](https://www.instagram.com/lexonitsolutions/)
@@ -175,6 +175,6 @@ This is a private portfolio website. For inquiries, please contact us through ou
 
 **Built with ❤️ by Lexonit Team**
 
-Bengaluru, India | Founded 2020
+Dubai, UAE | Founded 2020
 
 </div>

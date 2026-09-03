@@ -4,7 +4,8 @@ import {
   Smartphone, BarChart, ShoppingCart, Zap, 
   Building2, HeartPulse, GraduationCap, Gavel, 
   Briefcase, Wrench, UserCog, Megaphone, ClipboardCheck, Users, Headphones, Search,
-  Layout, Calendar, FileText, BarChart3, Mail, Plug, Shield, Clock, Database
+  Layout, Calendar, FileText, BarChart3, Mail, Plug, Shield, Clock, Database,
+  Ticket, Activity, Pill, Brain
 } from 'lucide-react';
 import { NavItem, Service, Offer, Industry, Testimonial, CaseStudy, TeamMember, BlogPost } from './types';
 
@@ -29,10 +30,10 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'AI Docs Assistant', path: '/services/ai-docs-assistant' },
       { label: 'AI Sheets', path: '/services/ai-sheets' },
       { label: 'AI Email', path: '/services/ai-email' },
+      { label: 'Hospital CRM & ERP', path: '/services/hospital-crm-erp' },
       { label: 'Integrations', path: '/services/integrations' },
     ]
   },
-  { label: 'Products', path: '/products' },
   { label: 'Offers', path: '/offers' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Blog', path: '/blog' },
@@ -76,20 +77,26 @@ export const SERVICES: Service[] = [
     description: 'Cross-platform mobile apps for iOS and Android using React Native.',
     icon: Smartphone,
     features: ['Push Notifications', 'Offline Mode', 'Biometric Auth']
+  },
+  {
+    title: 'Hospital CRM & ERP',
+    description: 'End-to-end healthcare management with smart queues, patient data analysis, and unified OP flow.',
+    icon: Building2,
+    features: ['Token Queueing', 'Patient Analysis', 'Medical CRM']
   }
 ];
 
 export const OFFERS: Offer[] = [
   {
     title: '48-Hour Website',
-    priceRange: 'IND 799 - 1,299',
+    priceRange: 'AED 799 - 1,299',
     delivery: '48 Hours',
     features: ['5-Page Professional Site', 'Hosting & Domain Setup', 'SEO Basics', 'Mobile Responsive', 'WhatsApp Button'],
     color: 'blue'
   },
   {
     title: 'Website + AI Automation',
-    priceRange: 'IND 2,999 - 7,999',
+    priceRange: 'AED 2,999 - 7,999',
     delivery: '1-2 Weeks',
     features: ['Premium Website', 'Custom AI Chatbot', 'Lead Capture Automation', 'Payment Gateway', 'CRM Integration'],
     recommended: true,
@@ -97,7 +104,7 @@ export const OFFERS: Offer[] = [
   },
   {
     title: 'AI Chatbot Setup',
-    priceRange: 'IND 499 - 999',
+    priceRange: 'AED 499 - 999',
     delivery: '3 Days',
     features: ['WhatsApp & Web Support', 'Custom Knowledge Base', '24/7 Auto-Reply', 'Human Handover', 'Conversation Analytics'],
     color: 'purple'
@@ -132,7 +139,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Faisal Khan',
     role: 'Founder',
     company: 'TechFlow Logistics',
-    content: 'The automation workflow they set up saves us 20 hours a week on manual data entry. Highly recommended for India startups.',
+    content: 'The automation workflow they set up saves us 20 hours a week on manual data entry. Highly recommended for UAE startups.',
     rating: 5
   }
 ];
@@ -145,7 +152,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     description: 'Implemented a WhatsApp bot that pre-qualifies tenants and schedules viewings automatically.'
   },
   {
-    title: 'Bengaluru Bistro Launch',
+    title: 'Dubai Bistro Launch',
     category: 'Web Development',
     metric: '2k+ Visitors',
     description: 'Launched a high-speed Next.js site in 48 hours for a grand opening, handling massive traffic spikes.'
@@ -160,11 +167,10 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export const TEAM: TeamMember[] = [
   {
-    name: 'Davood Khan',
+    name: 'Anshul Bhaduria',
     role: 'Software Engineer',
-    bio: 'AI Engineer, Full Stack Developer, and App Developer specializing in AI Agents, React, React Native, and Node.js. Building intelligent, scalable digital products.',
-    image: '/team/davood.jpeg',
-    imagePosition: 'object-top'
+    bio: 'Full-stack developer with expertise in Next.js, React, and AI integration. Passionate about building scalable web applications.',
+    image: '/team/Anshul Bhaduria.jpg'
   },
   {
     name: 'Imran',
@@ -194,8 +200,7 @@ export const TEAM: TeamMember[] = [
     name: 'Shaik Sadhik',
     role: 'Software Engineer',
     bio: 'Mobile app developer with React Native expertise. Creates cross-platform solutions for iOS and Android.',
-    image: '/team/Shaik Sadhik.jpeg',
-    imagePosition: 'object-top'
+    image: '/team/Shaik Sadhik.jpeg'
   },
   {
     name: 'Suraj Baride',
@@ -245,7 +250,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: '3',
     title: 'How We Built a Chatbot That Reduced Support Tickets by 70%',
-    excerpt: 'A deep dive into the RAG architecture and prompt engineering techniques we used for a leading India real estate firm.',
+    excerpt: 'A deep dive into the RAG architecture and prompt engineering techniques we used for a leading UAE real estate firm.',
     date: 'Oct 12, 2024',
     author: {
       name: 'Sarah Al-Fayed',
@@ -535,10 +540,14 @@ export interface ServicePageData {
   themeColor: 'violet' | 'blue' | 'emerald' | 'amber' | 'rose' | 'cyan';
   icon: any;
   heroMockupType: 'kanban' | 'chat' | 'calendar' | 'gantt' | 'dashboard' | 'doc';
+  heroImage?: string;
+  problemSolutionImage?: string;
+  featuresImage?: string;
   stats: { label: string; value: string }[];
   problems: { title: string; desc: string }[];
   solutions: { title: string; desc: string }[];
   features: string[];
+  featureDetails?: { title: string; desc: string; icon: any; image?: string }[];
   flipWords?: string[]; // Added for Hero FlipWords animation
   aiAvatar: {
     name: string;
@@ -662,6 +671,76 @@ export const SERVICE_PAGES_CONTENT: Record<string, ServicePageData> = {
       role: 'Focus Coach',
       description: 'Tess ruthlessly prioritizes your day. She ensures you work on high-impact tasks first.',
       imageGradient: 'from-blue-400 to-indigo-500'
+    }
+  },
+  'hospital-crm-erp': {
+    title: 'Hospital CRM & ERP',
+    subtitle: 'End-to-End Healthcare Management.',
+    description: 'A unified system designed specifically for hospitals to manage patient data, streamline outpatient flow, and automate administrative tasks.',
+    themeColor: 'emerald',
+    icon: Building2,
+    heroMockupType: 'dashboard',
+    heroImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop', // Tech doctor
+    problemSolutionImage: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=1200&auto=format&fit=crop', // Doctors discussing
+    featuresImage: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200&auto=format&fit=crop', // Hospital hallway / clinic
+    flipWords: ['Care', 'Efficiency', 'Management'],
+    stats: [
+      { label: 'Wait Times', value: '-45%' },
+      { label: 'Admin Work', value: '-60%' }
+    ],
+    problems: [
+      { title: 'Scattered Patient Data', desc: 'Doctors and staff struggle to find complete medical histories across disjointed systems.' },
+      { title: 'Long Outpatient Queues', desc: 'Manual token generation and scheduling leads to crowded waiting rooms and frustrated patients.' }
+    ],
+    solutions: [
+      { title: 'Smart Token Queue', desc: 'Automated token generation and real-time tracking for smooth OP management.' },
+      { title: 'AI Patient Analysis', desc: 'Predictive analytics and AI-driven insights to assist doctors in diagnosis and care planning.' }
+    ],
+    features: ['Token Queueing', 'Patient Data Management', 'Medical CRM', 'AI Based Patient Analysis', 'Easy OP Flow', 'Billing & Pharmacy Integration'],
+    featureDetails: [
+      { 
+        title: 'Token Queueing', 
+        desc: 'Automated digital tokens and display boards for seamless OP flow.', 
+        icon: Ticket,
+        image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=400&auto=format&fit=crop'
+      },
+      { 
+        title: 'Patient Data Management', 
+        desc: 'Centralized, secure electronic health records accessible instantly.', 
+        icon: Database,
+        image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=400&auto=format&fit=crop'
+      },
+      { 
+        title: 'Medical CRM', 
+        desc: 'Build strong relationships with automated follow-ups and feedback.', 
+        icon: HeartPulse,
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400&auto=format&fit=crop'
+      },
+      { 
+        title: 'AI Based Patient Analysis', 
+        desc: 'Predictive analytics to assist doctors in diagnosis and care.', 
+        icon: Brain,
+        image: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=400&auto=format&fit=crop'
+      },
+      { 
+        title: 'Easy OP Flow', 
+        desc: 'Reduce wait times with optimized doctor scheduling and routing.', 
+        icon: Activity,
+        image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=400&auto=format&fit=crop'
+      },
+      { 
+        title: 'Billing & Pharmacy Integration', 
+        desc: 'Seamlessly link prescriptions to pharmacy inventory and billing.', 
+        icon: Pill,
+        image: 'https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?q=80&w=400&auto=format&fit=crop'
+      }
+    ],
+    aiAvatar: {
+      name: 'Dr. Florence',
+      role: 'Care Coordinator AI',
+      description: 'Florence orchestrates hospital operations. She ensures patients move seamlessly from intake to discharge.',
+      imageGradient: 'from-emerald-400 to-teal-500',
+      avatarImage: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=400&auto=format&fit=crop'
     }
   },
   'ai-calendar': {

@@ -11,8 +11,8 @@ export default function Document() {
               (function() {
                 try {
                   const theme = localStorage.getItem('theme');
-                  // Default to dark mode if no theme is saved
-                  const shouldBeDark = theme === 'dark' || theme === null;
+                  // Default to light mode if no theme is saved
+                  const shouldBeDark = theme === 'dark';
                   
                   if (shouldBeDark) {
                     document.documentElement.classList.add('dark');
@@ -20,8 +20,8 @@ export default function Document() {
                     document.documentElement.classList.remove('dark');
                   }
                 } catch (e) {
-                  // Fallback to dark mode on error
-                  document.documentElement.classList.add('dark');
+                  // Fallback to light mode on error
+                  document.documentElement.classList.remove('dark');
                 }
               })();
             `,
