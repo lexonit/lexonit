@@ -74,14 +74,13 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
       </div> */}
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20">
-<FadeIn>
-        <div className="absolute inset-0 z-0 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-96 h-96 bg-violet-400/20 dark:bg-violet-600/20 rounded-full blur-[128px]" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-400/20 dark:bg-cyan-600/10 rounded-full blur-[128px]" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="w-full max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -155,39 +154,41 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="w-full flex justify-center items-center"
           >
-            <div className="relative z-10">
-              <ChatDemo />
+            <div className="relative w-full max-w-lg">
+              <div className="relative z-10">
+                <ChatDemo />
+              </div>
+              
+              {/* Floating 3D Avatar Team */}
+              {HERO_AVATARS.map((avatar, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: avatar.delay }}
+                  className={`absolute ${avatar.position} z-20 hidden md:block`}
+                >
+                  <div className="relative group cursor-pointer">
+                     <div className="w-20 h-20 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 overflow-hidden shadow-2xl transform transition-transform group-hover:scale-110">
+                       <img src={avatar.url} alt={avatar.name} className="w-full h-full object-cover" />
+                     </div>
+                     {/* Tooltip/Name tag */}
+                     <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/80 dark:bg-white/90 text-white dark:text-black text-xs font-bold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg transform translate-y-2 group-hover:translate-y-0">
+                        {avatar.name} • {avatar.role}
+                     </div>
+                     {/* Status Indicator */}
+                     <span className="absolute top-0 right-0 flex h-3 w-3 -mt-1 -mr-1">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-white dark:border-black"></span>
+                      </span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            
-            {/* Floating 3D Avatar Team */}
-            {HERO_AVATARS.map((avatar, i) => (
-              <motion.div
-                key={i}
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: avatar.delay }}
-                className={`absolute ${avatar.position} z-20 hidden md:block`}
-              >
-                <div className="relative group cursor-pointer">
-                   <div className="w-20 h-20 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 overflow-hidden shadow-2xl transform transition-transform group-hover:scale-110">
-                     <img src={avatar.url} alt={avatar.name} className="w-full h-full object-cover" />
-                   </div>
-                   {/* Tooltip/Name tag */}
-                   <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/80 dark:bg-white/90 text-white dark:text-black text-xs font-bold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg transform translate-y-2 group-hover:translate-y-0">
-                      {avatar.name} • {avatar.role}
-                   </div>
-                   {/* Status Indicator */}
-                   <span className="absolute top-0 right-0 flex h-3 w-3 -mt-1 -mr-1">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-white dark:border-black"></span>
-                    </span>
-                </div>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
-      </FadeIn></section>
+      </section>
 
       {/* Tech Stack Floating Dock */}
       <section className="py-12 border-y border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/50 backdrop-blur-sm">

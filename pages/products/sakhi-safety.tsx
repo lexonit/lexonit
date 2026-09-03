@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import {
   Shield, MapPin, Users, Bell, Zap, Phone, Navigation,
-  ChevronRight, Star, Download, CheckCircle, ArrowLeft,
+  ChevronRight, Star, Download, CheckCircle,
   AlertCircle, Clock, Eye, Smartphone, Volume2, PhoneCall
 } from 'lucide-react';
 
@@ -56,22 +56,22 @@ const FloatingParticles = () => (
         key={i}
         className="absolute rounded-full"
         style={{
-          width: Math.random() * 4 + 2,
-          height: Math.random() * 4 + 2,
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
+          width: ((i * 3) % 4) + 2,
+          height: ((i * 3) % 4) + 2,
+          left: `${(i * 17) % 100}%`,
+          top: `${(i * 23) % 100}%`,
           background: i % 3 === 0 ? '#ef4444' : i % 3 === 1 ? '#7c3aed' : '#64748b',
           opacity: 0.4,
         }}
         animate={{
           y: [0, -40, 0],
-          x: [0, Math.random() * 20 - 10, 0],
+          x: [0, (i % 2 === 0 ? 10 : -10), 0],
           opacity: [0.2, 0.6, 0.2],
         }}
         transition={{
-          duration: 3 + Math.random() * 4,
+          duration: 3 + (i % 4),
           repeat: Infinity,
-          delay: Math.random() * 3,
+          delay: (i * 0.3) % 3,
           ease: 'easeInOut',
         }}
       />
@@ -207,18 +207,6 @@ const SakhiLandingPage: React.FC<SakhiLandingProps> = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white overflow-x-hidden transition-colors duration-300">
-      {/* Back button */}
-      <motion.button
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.3 }}
-        onClick={() => onNavigate('/products')}
-        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white dark:bg-white/10 backdrop-blur-md border border-slate-200 dark:border-white/20 rounded-full text-slate-900 dark:text-white text-sm font-medium hover:bg-slate-100 dark:hover:bg-white/20 shadow-sm dark:shadow-none transition-all duration-300"
-      >
-        <ArrowLeft size={14} />
-        Products
-      </motion.button>
-
       {/* ──── HERO ──────────────────────────────────────────────── */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Radial red glow background */}

@@ -152,7 +152,7 @@ export const ChatDemo = () => {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto h-[400px] flex flex-col bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 shadow-2xl shadow-violet-900/20">
+    <Card className="w-full max-w-lg mx-auto h-[400px] flex flex-col bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 shadow-2xl shadow-violet-900/20">
       <div className="p-4 border-b border-slate-100 dark:border-white/5 flex items-center gap-3 bg-slate-50 dark:bg-slate-900/50">
         <div className="relative">
           <div className="w-2 h-2 absolute bottom-0 right-0 bg-green-500 rounded-full ring-2 ring-white dark:ring-slate-900" />

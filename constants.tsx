@@ -34,6 +34,14 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Integrations', path: '/services/integrations' },
     ]
   },
+  { 
+    label: 'Products', 
+    path: '/products',
+    children: [
+      { label: 'All Products', path: '/products' },
+      { label: 'Sakhi Safety', path: '/products/sakhi-safety' },
+    ]
+  },
   { label: 'Offers', path: '/offers' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Blog', path: '/blog' },
