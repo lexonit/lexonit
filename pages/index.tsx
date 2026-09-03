@@ -155,36 +155,38 @@ export const Home = ({ onNavigate }: { onNavigate: (path: string) => void }) => 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="w-full flex lg:justify-end justify-center"
           >
-            <div className="relative z-10">
-              <ChatDemo />
+            <div className="relative w-full max-w-md">
+              <div className="relative z-10">
+                <ChatDemo />
+              </div>
+              
+              {/* Floating 3D Avatar Team */}
+              {HERO_AVATARS.map((avatar, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: avatar.delay }}
+                  className={`absolute ${avatar.position} z-20 hidden md:block`}
+                >
+                  <div className="relative group cursor-pointer">
+                     <div className="w-20 h-20 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 overflow-hidden shadow-2xl transform transition-transform group-hover:scale-110">
+                       <img src={avatar.url} alt={avatar.name} className="w-full h-full object-cover" />
+                     </div>
+                     {/* Tooltip/Name tag */}
+                     <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/80 dark:bg-white/90 text-white dark:text-black text-xs font-bold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg transform translate-y-2 group-hover:translate-y-0">
+                        {avatar.name} • {avatar.role}
+                     </div>
+                     {/* Status Indicator */}
+                     <span className="absolute top-0 right-0 flex h-3 w-3 -mt-1 -mr-1">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-white dark:border-black"></span>
+                      </span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            
-            {/* Floating 3D Avatar Team */}
-            {HERO_AVATARS.map((avatar, i) => (
-              <motion.div
-                key={i}
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: avatar.delay }}
-                className={`absolute ${avatar.position} z-20 hidden md:block`}
-              >
-                <div className="relative group cursor-pointer">
-                   <div className="w-20 h-20 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 overflow-hidden shadow-2xl transform transition-transform group-hover:scale-110">
-                     <img src={avatar.url} alt={avatar.name} className="w-full h-full object-cover" />
-                   </div>
-                   {/* Tooltip/Name tag */}
-                   <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/80 dark:bg-white/90 text-white dark:text-black text-xs font-bold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg transform translate-y-2 group-hover:translate-y-0">
-                      {avatar.name} • {avatar.role}
-                   </div>
-                   {/* Status Indicator */}
-                   <span className="absolute top-0 right-0 flex h-3 w-3 -mt-1 -mr-1">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-white dark:border-black"></span>
-                    </span>
-                </div>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </FadeIn></section>

@@ -1,9 +1,25 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import type { GetServerSideProps } from 'next';
 import { PRICING_PLANS, PRICING_FEATURES, PRICING_FAQS } from '../constants';
 import { Button, Card, Badge } from '../components/ui';
 import { Check, HelpCircle, Zap, Minus, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { getCurrencyForCountry, formatPriceInCurrency } from '../lib/currency';
+
+export const getServerSideProps: GetServerSideProps = async ({ req, query }) => {
+  // Vercel adds this header at the edge for every request it proxies.
+  // It's absent in local dev, where pricing falls back to USD.
+  let countryCode = (req.headers['x-vercel-ip-country'] as string) || null;
+
+  // Dev-only override so country pricing can be previewed on localhost,
+  // e.g. http://localhost:3000/pricing?country=IN
+  if (process.env.NODE_ENV !== 'production' && typeof query.country === 'string') {
+    countryCode = query.country;
+  }
+
+  return { props: { countryCode } };
+};
 
 // Helper to render values (boolean, string, check)
 const FeatureValue = ({ value, highlight }: { value: any, highlight: boolean }) => {
@@ -20,8 +36,29 @@ const FeatureValue = ({ value, highlight }: { value: any, highlight: boolean }) 
   return <span className={`font-medium text-sm ${highlight ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400'}`}>{value}</span>;
 };
 
-export const PricingPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => {
+export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: string) => void; countryCode?: string | null }) => {
   const [annual, setAnnual] = useState(true);
+  const [resolvedCountry, setResolvedCountry] = useState(countryCode ?? null);
+
+  useEffect(() => {
+    // Vercel's geo header (server-detected countryCode) is only present on
+    // the deployed site. When it's missing — e.g. on localhost, or any
+    // non-Vercel host — fall back to a client-side IP lookup so pricing
+    // still localizes to the visitor's real country.
+    if (countryCode) return;
+    let cancelled = false;
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        if (!cancelled && data?.country_code) setResolvedCountry(data.country_code);
+      })
+      .catch(() => {
+        // Silently keep the USD fallback if the lookup fails.
+      });
+    return () => { cancelled = true; };
+  }, [countryCode]);
+
+  const currency = useMemo(() => getCurrencyForCountry(resolvedCountry), [resolvedCountry]);
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300 font-sans">
@@ -77,10 +114,7 @@ export const PricingPage = ({ onNavigate }: { onNavigate: (path: string) => void
                       <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">{plan.name}</h3>
                       <div className="flex items-baseline justify-center gap-0.5 mb-1">
                         {typeof price === 'number' ? (
-                           <>
-                             <span className="text-sm font-medium text-slate-500">$</span>
-                             <span className="text-3xl font-bold text-slate-900 dark:text-white">{price}</span>
-                           </>
+                           <span className="text-3xl font-bold text-slate-900 dark:text-white">{formatPriceInCurrency(price, currency)}</span>
                         ) : (
                            <span className="text-3xl font-bold text-slate-900 dark:text-white">{price}</span>
                         )}
@@ -156,7 +190,7 @@ export const PricingPage = ({ onNavigate }: { onNavigate: (path: string) => void
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
                     <div className="flex items-center justify-center gap-1 mb-1">
                       <span className="text-4xl font-bold text-slate-900 dark:text-white">
-                        {typeof price === 'number' ? price : price}
+                        {typeof price === 'number' ? formatPriceInCurrency(price, currency) : price}
                       </span>
                       {typeof price === 'number' && <span className="text-slate-500 text-sm">/mo</span>}
                     </div>

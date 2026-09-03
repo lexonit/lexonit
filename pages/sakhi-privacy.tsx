@@ -501,13 +501,13 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
             color="teal"
           >
             <SubSection title="Access Your Data" icon={Eye}>
-              <p>You can view all your trusted contacts, emergency history, and account information directly within the Sakhi Safety app. You may also request a complete export of your personal data by contacting us at <strong>hr@lexonit.com</strong>.</p>
+              <p>You can view all your trusted contacts, emergency history, and account information directly within the Sakhi Safety app. You may also request a complete export of your personal data by contacting us at <strong>securesakhi@gmail.com</strong>.</p>
             </SubSection>
 
             <SubSection title="Edit or Delete Your Data" icon={Trash2}>
               <ul>
                 <li><strong>Trusted contacts</strong> can be added or removed at any time within the app</li>
-                <li><strong>Account deletion:</strong> Contact us at hr@lexonit.com to permanently delete your account and all associated data. We will process this request within 30 days. Note: Emergency logs may be retained for legal purposes in limited circumstances.</li>
+                <li><strong>Account deletion:</strong> Contact us at securesakhi@gmail.com to permanently delete your account and all associated data. We will process this request within 30 days. Note: Emergency logs may be retained for legal purposes in limited circumstances.</li>
               </ul>
             </SubSection>
 
@@ -527,26 +527,76 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
             </SubSection>
           </PolicyBlock>
 
-          {/* Section 8: Children's Privacy */}
+          {/* Section 8: Account Deletion */}
+          <PolicyBlock
+            id="account-deletion"
+            number="8"
+            icon={Trash2}
+            title="Account Deletion"
+            color="rose"
+          >
+            <div className="p-4 mb-2 bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800/30 rounded-xl flex items-start gap-3">
+              <AlertTriangle size={16} className="text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-rose-700 dark:text-rose-300">
+                <strong>Google Play Compliant:</strong> Sakhi Safety Guardian provides an in-app account-deletion option and an email-based account-deletion request method.
+              </p>
+            </div>
+
+            <SubSection title="How to Delete Your Account" icon={Trash2}>
+              <p>Users can permanently delete their Sakhi Safety Guardian account in either of these ways:</p>
+              <ul>
+                <li>
+                  <strong>Option 1 — In the app:</strong> Open Sakhi Safety Guardian → <strong>Safety tab</strong> → scroll to the <strong>Danger Zone</strong> → tap <strong>Delete Account</strong> → confirm deletion.
+                </li>
+                <li>
+                  <strong>Option 2 — By email:</strong> Send an email from the email address registered with Sakhi Safety Guardian to <strong>securesakhi@gmail.com</strong> with the subject line <strong>"Delete my Sakhi account"</strong>. We will confirm and process eligible email deletion requests within <strong>30 days</strong>.
+                </li>
+              </ul>
+            </SubSection>
+
+            <SubSection title="Data Deleted When an Account Is Removed" icon={Database}>
+              <p>When an account is deleted, the following data is permanently removed from active systems:</p>
+              <ul>
+                <li>Account and authentication record</li>
+                <li>User profile information, including name and email address</li>
+                <li>Trusted emergency contacts</li>
+                <li>Location-history records used by live tracking</li>
+                <li>Emergency SOS logs</li>
+                <li>Safety-timer records</li>
+                <li>Active authentication sessions and access tokens</li>
+              </ul>
+            </SubSection>
+
+            <SubSection title="Effect of Account Deletion" icon={AlertTriangle}>
+              <ul>
+                <li>Account deletion is <strong>permanent</strong> and cannot be undone</li>
+                <li>After deletion, the user can no longer sign in or use safety features connected to that account</li>
+                <li>Trusted contacts will no longer receive SOS alerts from that account</li>
+                <li>Uninstalling the app alone does <strong>not</strong> delete the account or associated server data. Use one of the deletion methods above</li>
+              </ul>
+            </SubSection>
+          </PolicyBlock>
+
+          {/* Section 9: Children's Privacy */}
           <PolicyBlock
             id="children"
-            number="8"
+            number="9"
             icon={Shield}
             title="Children's Privacy"
             color="rose"
           >
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Sakhi Safety is intended for users aged 13 and above. We do not knowingly collect personal information from children under 13 years of age. If a parent or guardian believes that their child under 13 has created an account, please contact us immediately at <strong>hr@lexonit.com</strong> and we will promptly delete the account and all associated data.
+              Sakhi Safety is intended for users aged 13 and above. We do not knowingly collect personal information from children under 13 years of age. If a parent or guardian believes that their child under 13 has created an account, please contact us immediately at <strong>securesakhi@gmail.com</strong> and we will promptly delete the account and all associated data.
             </p>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mt-3">
               Users between 13–18 years of age must have parental consent to use Sakhi Safety. By registering, users under 18 confirm they have obtained this consent. We strongly encourage parents to discuss app usage with their children and help them understand how emergency features work.
             </p>
           </PolicyBlock>
 
-          {/* Section 9: Third-Party Links */}
+          {/* Section 10: Third-Party Links */}
           <PolicyBlock
             id="third-party"
-            number="9"
+            number="11"
             icon={Globe}
             title="Third-Party Links & Services"
             color="amber"
@@ -559,10 +609,10 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
             </p>
           </PolicyBlock>
 
-          {/* Section 10: International Transfers */}
+          {/* Section 11: International Transfers */}
           <PolicyBlock
             id="international"
-            number="10"
+            number="11"
             icon={Globe}
             title="International Data Transfers"
             color="blue"
@@ -575,10 +625,10 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
             </p>
           </PolicyBlock>
 
-          {/* Section 11: Policy Updates */}
+          {/* Section 12: Policy Updates */}
           <PolicyBlock
             id="policy-updates"
-            number="11"
+            number="12"
             icon={RefreshCw}
             title="Policy Updates"
             color="violet"
@@ -591,10 +641,10 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
             </p>
           </PolicyBlock>
 
-          {/* Section 12: Contact */}
+          {/* Section 13: Contact */}
           <PolicyBlock
             id="contact"
-            number="12"
+            number="13"
             icon={Mail}
             title="Contact Us"
             color="green"
@@ -607,7 +657,7 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
                 { label: 'Data Controller', value: 'LexonIT', icon: Building2 },
                 { label: 'App Name', value: 'Sakhi Safety', icon: Smartphone },
                 { label: 'App Package ID', value: APP_ID, icon: Key },
-                { label: 'Email', value: 'hr@lexonit.com', icon: Mail },
+                { label: 'Email', value: 'securesakhi@gmail.com', icon: Mail },
                 { label: 'Platform', value: 'Google Play Store (Android)', icon: Globe },
                 { label: 'Company Location', value: 'UAE', icon: MapPin },
               ].map((item, i) => {
@@ -753,3 +803,5 @@ const SubSection = ({ title, icon: Icon, children }: SubSectionProps) => (
 );
 
 export default SakhiPrivacyPage;
+
+
