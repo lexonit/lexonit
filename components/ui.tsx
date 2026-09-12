@@ -593,32 +593,36 @@ export const ProductItem = ({
   description,
   href,
   src,
-  onClick // Added onClick
+  onClick, // Added onClick
+  imgFit = 'cover'
 }: {
   title: string;
   description: string;
   href: string;
   src: string;
   onClick?: () => void;
+  imgFit?: 'cover' | 'contain';
 }) => {
   return (
-    <a 
-      href={href} 
-      onClick={(e) => { 
-        if(onClick) { 
-          e.preventDefault(); 
-          onClick(); 
-        } 
-      }} 
+    <a
+      href={href}
+      onClick={(e) => {
+        if(onClick) {
+          e.preventDefault();
+          onClick();
+        }
+      }}
       className="flex space-x-4 group items-start hover:bg-slate-50 dark:hover:bg-white/5 p-2 rounded-xl transition-colors"
     >
-      <img
-        src={src}
-        width={140}
-        height={80}
-        alt={title}
-        className="flex-shrink-0 rounded-lg shadow-sm group-hover:shadow-md transition-shadow object-cover h-[80px] w-[120px]"
-      />
+      <div className={`flex-shrink-0 rounded-lg shadow-sm group-hover:shadow-md transition-shadow h-[80px] w-[120px] ${imgFit === 'contain' ? 'bg-white flex items-center justify-center p-2' : ''}`}>
+        <img
+          src={src}
+          width={140}
+          height={80}
+          alt={title}
+          className={imgFit === 'contain' ? 'max-h-full max-w-full object-contain' : 'w-full h-full rounded-lg object-cover'}
+        />
+      </div>
       <div className="flex flex-col justify-center">
         <h4 className="text-base font-bold mb-1 text-black dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
           {title}

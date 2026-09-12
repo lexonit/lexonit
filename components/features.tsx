@@ -363,24 +363,24 @@ export function AnimatedTestimonialsDemo() {
     },
     {
       quote:
-        "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
-      name: "Emily Watson",
-      designation: "Operations Director at CloudScale",
-      src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "The anti-skip video protection and AI mock interview system were exactly what we envisioned — learners actually finish courses now, and the readiness reports feel like a real interview prep coach.",
+      name: "JKS Learning",
+      designation: "Career-Ready IT Upskilling Platform",
+      src: "/clients/jks-learning-avatar.png",
     },
     {
       quote:
-        "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
-      name: "James Kim",
-      designation: "Engineering Lead at DataPro",
-      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "LexonIT built an AI sales employee that actually works across LinkedIn, WhatsApp, email and voice at once. Our pipeline runs itself now — it feels like we hired a whole SDR team for the price of one tool.",
+      name: "Mr LAD",
+      designation: "AI Sales Employee Platform",
+      src: "/clients/mrlad-avatar.png",
     },
     {
       quote:
-        "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
-      name: "Lisa Thompson",
-      designation: "VP of Technology at FutureNet",
-      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "From the consulting brief to the final enterprise platform, the team understood exactly what 'scalable' meant for us. Clean architecture, fast delivery, zero hand-holding needed.",
+      name: "DYCNITY",
+      designation: "IT Consulting & Digital Transformation",
+      src: "/clients/dycnity-avatar.png",
     },
   ];
   return <AnimatedTestimonials testimonials={testimonials} />;

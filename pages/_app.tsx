@@ -41,8 +41,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       '/services/ai-chat',
       '/products',
       '/products/sakhi-safety',
-      '/offers',
+      '/products/autohiru',
+      '/clients',
       '/pricing',
+      '/career',
       '/blog',
       '/about',
       '/contact'

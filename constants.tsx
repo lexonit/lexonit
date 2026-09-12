@@ -40,10 +40,11 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       { label: 'All Products', path: '/products' },
       { label: 'Sakhi Safety', path: '/products/sakhi-safety' },
+      { label: 'AutoHirU', path: '/products/autohiru' },
     ]
   },
-  { label: 'Offers', path: '/offers' },
-  { label: 'Pricing', path: '/pricing' },
+  { label: 'Clients', path: '/clients' },
+  { label: 'Career', path: '/career' },
   { label: 'Blog', path: '/blog' },
   { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
@@ -187,10 +188,10 @@ export const TEAM: TeamMember[] = [
     image: '/team/BeastImran.jpg'
   },
   {
-    name: 'Mitali Ravali',
-    role: 'Software Engineer',
-    bio: 'Frontend developer passionate about user experience and modern UI frameworks. Skilled in React and TypeScript.',
-    image: '/team/Mitali Ravali.jpg'
+    name: 'Harsha Vardhan',
+    role: 'AI Engineer',
+    bio: 'AI engineer building LLM-powered features, from prompt design to fine-tuning models for real-world product needs.',
+    image: '/team/Harsha Vardhan.png'
   },
   {
     name: 'Ravali Nara',
@@ -217,10 +218,10 @@ export const TEAM: TeamMember[] = [
     image: '/team/suraj baride.jpeg'
   },
   {
-    name: 'Varish',
-    role: 'Software Engineer',
-    bio: 'Security-focused developer and code optimization specialist. Ensures best practices and performance.',
-    image: '/team/varish.jpeg'
+    name: 'Asin Shaik',
+    role: 'AI Engineer & Scrum Master',
+    bio: 'AI engineer who also drives sprint planning and cross-functional coordination as the team\'s Scrum Master.',
+    image: '/team/Asin Shaik.png'
   }
 ];
 

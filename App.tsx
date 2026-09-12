@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Footer } from './components/layout';
 import { Home } from './pages';
 import { ServicesPage } from './pages/services';
-import { OffersPage } from './pages/offers';
 import { ContactPage } from './pages/contact';
 import { PricingPage } from './pages/pricing';
 import { ITProvidersPage } from './pages/services/it-providers';
@@ -44,7 +43,7 @@ const App = () => {
       '/': 'LexonIT | AI & Web Development UAE',
       '/services': 'Services | LexonIT',
       '/pricing': 'Pricing | LexonIT',
-      '/offers': 'Offers | LexonIT',
+      '/clients': 'Our Clients | LexonIT',
       '/contact': 'Contact Us | LexonIT',
       '/about': 'About | LexonIT',
       '/login': 'Login | LexonIT',
@@ -91,7 +90,6 @@ const App = () => {
       case '/': return <Home onNavigate={setCurrentPath} />;
       case '/services': return <ServicesPage onNavigate={setCurrentPath} />;
       case '/pricing': return <PricingPage onNavigate={setCurrentPath} />;
-      case '/offers': return <OffersPage onNavigate={setCurrentPath} />;
       case '/contact': return <ContactPage />;
       case '/about': return <AboutPage onNavigate={setCurrentPath} />;
       case '/blog': return <BlogPage onNavigate={setCurrentPath} />;
