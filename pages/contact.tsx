@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 
 import React, { useState } from 'react';
 import { Button, Input, Card, Label } from '../components/ui';
-import { Mail, MapPin, Phone, MessageCircle, Send, Loader2 } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Loader2 } from 'lucide-react';
+import { WhatsAppIcon } from '../components/layout';
 
 export const ContactPage = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -104,11 +105,11 @@ export const ContactPage = () => {
             </div>
 
             <div className="mt-12">
-              <Button 
-                onClick={() => window.open('https://wa.me/9720588230538', '_blank')}
+              <Button
+                onClick={() => window.open('https://wa.me/917780181920', '_blank')}
                 className="w-full sm:w-auto bg-[#25D366] hover:bg-[#128C7E] text-white border-none dark:bg-[#25D366] dark:text-white"
               >
-                <MessageCircle className="mr-2" size={20} /> Chat on WhatsApp
+                <WhatsAppIcon className="mr-2" size={20} /> Chat on WhatsApp
               </Button>
             </div>
           </div>

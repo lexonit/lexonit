@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { NAV_ITEMS } from '../constants';
 import { Button, SparklesCore, Menu, MenuItem, ProductItem, HoveredLink } from './ui';
-import { Menu as MenuIcon, X, Sun, Moon, ChevronDown, Mail, ArrowRight, Twitter, Linkedin, Instagram, LogIn, MessageCircle, Youtube } from 'lucide-react';
+import { Menu as MenuIcon, X, Sun, Moon, ChevronDown, Mail, ArrowRight, Twitter, Linkedin, Instagram, LogIn, Youtube } from 'lucide-react';
 
 interface NavbarProps {
   onNavigate: (path: string) => void;
@@ -99,14 +99,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPath, theme, 
                                 description="Your all-in-one personal safety companion app."
                                 onClick={() => handleNav('/products/sakhi-safety')}
                             />
+                            <ProductItem
+                                title="AutoHirU"
+                                href="/products/autohiru"
+                                src="/autohiru-icon.png"
+                                imgFit="contain"
+                                description="AI auto-apply across LinkedIn, Naukri & more."
+                                onClick={() => handleNav('/products/autohiru')}
+                            />
                             <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/10">
                                 <HoveredLink onClick={() => handleNav('/products')} href="/products">View All Products →</HoveredLink>
                             </div>
                         </div>
                     </MenuItem>
 
-                    <div onClick={() => handleNav('/offers')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/offers') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Offers</div>
-                    <div onClick={() => handleNav('/pricing')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/pricing') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Pricing</div>
+                    <div onClick={() => handleNav('/clients')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/clients') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Clients</div>
+                    <div onClick={() => handleNav('/career')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/career') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Career</div>
                     <div onClick={() => handleNav('/blog')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/blog') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Blog</div>
                     <div onClick={() => handleNav('/about')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/about') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>About</div>
                     <div onClick={() => handleNav('/contact')} onMouseEnter={() => setActive(null)} className={`cursor-pointer hover:opacity-90 px-2 lg:px-4 py-1 text-sm font-medium ${currentPath.startsWith('/contact') ? 'text-violet-600 dark:text-violet-400' : 'text-black dark:text-white'}`}>Contact</div>
@@ -256,8 +264,8 @@ export const Footer = ({ onNavigate }: { onNavigate: (path: string) => void }) =
             <ul className="space-y-3">
               {['About Us', 'Careers', 'Partners', 'Blog'].map((item) => (
                 <li key={item}>
-                  <button 
-                    onClick={() => item === 'Blog' ? onNavigate('/blog') : onNavigate('/about')} 
+                  <button
+                    onClick={() => item === 'Blog' ? onNavigate('/blog') : item === 'Careers' ? onNavigate('/career') : onNavigate('/about')}
                     className="text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 text-sm transition-colors"
                   >
                     {item}
@@ -309,10 +317,18 @@ export const Footer = ({ onNavigate }: { onNavigate: (path: string) => void }) =
   );
 };
 
+// Real WhatsApp glyph (brand icon), used for the floating button and contact CTA
+export const WhatsAppIcon: React.FC<{ size?: number; className?: string }> = ({ size = 28, className }) => (
+  <svg viewBox="0 0 32 32" width={size} height={size} className={className} fill="currentColor" aria-hidden="true">
+    <path d="M16.01 3C9.38 3 4 8.37 4 15c0 2.34.65 4.52 1.78 6.38L4 29l7.82-1.74A11.9 11.9 0 0 0 16.01 27C22.63 27 28 21.63 28 15S22.63 3 16.01 3Zm0 21.8a9.7 9.7 0 0 1-4.95-1.36l-.35-.21-4.64 1.03 1.03-4.52-.23-.37A9.7 9.7 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16.01 24.8Z"/>
+    <path d="M21.6 17.72c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.68-1.63-.93-2.23-.24-.58-.5-.5-.68-.51h-.58c-.2 0-.53.07-.8.38-.28.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.72 2.03-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.35Z"/>
+  </svg>
+);
+
 // Floating WhatsApp Button Component
 export const FloatingWhatsApp: React.FC = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/9720588230538', '_blank');
+    window.open('https://wa.me/917780181920', '_blank');
   };
 
   return (
@@ -321,7 +337,7 @@ export const FloatingWhatsApp: React.FC = () => {
       className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
       aria-label="Chat on WhatsApp"
     >
-      <MessageCircle size={28} className="group-hover:animate-pulse" />
+      <WhatsAppIcon size={28} className="group-hover:animate-pulse" />
     </button>
   );
 };

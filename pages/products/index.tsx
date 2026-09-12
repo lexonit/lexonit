@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import { ArrowRight, Star, Smartphone } from 'lucide-react';
+import { ArrowRight, Star, Smartphone, Globe } from 'lucide-react';
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -15,6 +15,27 @@ const cardVariant: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
+
+const GLOW_THEME = {
+  red: {
+    hoverShadow: 'hover:shadow-rose-500/10 dark:hover:shadow-rose-500/20',
+    cardGlow: 'from-red-500/5',
+    ring: 'border-red-400/30',
+    iconShadow: 'shadow-red-500/30',
+    tagline: 'text-red-500',
+    cta: 'text-red-500 hover:text-red-400',
+    bottomLine: 'via-red-500',
+  },
+  blue: {
+    hoverShadow: 'hover:shadow-blue-500/10 dark:hover:shadow-violet-500/20',
+    cardGlow: 'from-blue-500/5',
+    ring: 'border-blue-400/30',
+    iconShadow: 'shadow-blue-500/30',
+    tagline: 'text-blue-500',
+    cta: 'text-blue-500 hover:text-violet-400',
+    bottomLine: 'via-blue-500',
+  },
+} as const;
 
 interface ProductsPageProps {
   onNavigate: (path: string) => void;
@@ -32,6 +53,24 @@ const PRODUCTS = [
     platform: 'iOS & Android',
     features: ['Instant SOS Alerts', 'Live Location Sharing', 'Trusted Contacts', 'Safety Check Timer'],
     path: '/products/sakhi-safety',
+    platformIcon: Smartphone,
+    glow: 'red' as const,
+    iconBg: false,
+  },
+  {
+    id: 'autohiru',
+    name: 'AutoHirU',
+    tagline: 'Get Hired on Autopilot',
+    description: 'AI-powered job search that auto-applies for you across LinkedIn, Naukri, and other job boards — matched to your profile, tracked in one dashboard.',
+    icon: '/autohiru-icon.png',
+    badge: 'New',
+    badgeColor: 'bg-blue-500',
+    platform: 'Web & Chrome Extension',
+    features: ['AI Auto-Apply', 'Multi-Platform Sync', 'Smart Job Matching', 'Application Tracking'],
+    path: '/products/autohiru',
+    platformIcon: Globe,
+    glow: 'blue' as const,
+    iconBg: true,
   }
 ];
 
@@ -74,17 +113,20 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
           animate="show"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {PRODUCTS.map((product) => (
+          {PRODUCTS.map((product) => {
+            const theme = GLOW_THEME[product.glow];
+            const PlatformIcon = product.platformIcon;
+            return (
             <motion.div
               key={product.id}
               variants={cardVariant}
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="group relative bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-rose-500/10 dark:hover:shadow-rose-500/20 transition-all duration-500"
+              className={`group relative bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl ${theme.hoverShadow} transition-all duration-500`}
               onClick={() => onNavigate(product.path)}
             >
               {/* Card glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-red-500/5 to-transparent rounded-3xl" />
+              <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${theme.cardGlow} to-transparent rounded-3xl`} />
 
               {/* App Icon Section */}
               <div className="relative p-8 pb-6 flex flex-col items-center">
@@ -92,20 +134,24 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-                    className="absolute -inset-3 rounded-3xl border border-dashed border-red-400/30"
+                    className={`absolute -inset-3 rounded-3xl border border-dashed ${theme.ring}`}
                   />
                   <motion.div
                     animate={{ rotate: -360 }}
                     transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
                     className="absolute -inset-6 rounded-[2rem] border border-dashed border-violet-400/20"
                   />
-                  <motion.img
+                  <motion.div
                     whileHover={{ scale: 1.08 }}
                     transition={{ duration: 0.3 }}
-                    src={product.icon}
-                    alt={product.name}
-                    className="w-24 h-24 rounded-[22px] shadow-2xl shadow-red-500/30 relative z-10 object-cover"
-                  />
+                    className={`w-24 h-24 rounded-[22px] shadow-2xl ${theme.iconShadow} relative z-10 overflow-hidden ${product.iconBg ? 'bg-white flex items-center justify-center p-3' : ''}`}
+                  >
+                    <img
+                      src={product.icon}
+                      alt={product.name}
+                      className={product.iconBg ? 'w-full h-full object-contain' : 'w-full h-full object-cover'}
+                    />
+                  </motion.div>
                 </div>
 
                 <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${product.badgeColor} text-white text-xs font-semibold mb-3`}>
@@ -116,7 +162,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white text-center mb-1">
                   {product.name}
                 </h2>
-                <p className="text-sm text-red-500 font-medium mb-4 text-center">{product.tagline}</p>
+                <p className={`text-sm ${theme.tagline} font-medium mb-4 text-center`}>{product.tagline}</p>
                 <p className="text-slate-500 dark:text-slate-400 text-sm text-center leading-relaxed">
                   {product.description}
                 </p>
@@ -139,21 +185,22 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
               {/* Platform & CTA */}
               <div className="px-8 pb-8 flex items-center justify-between">
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                  <Smartphone size={12} />
+                  <PlatformIcon size={12} />
                   {product.platform}
                 </div>
                 <motion.button
                   whileHover={{ x: 4 }}
-                  className="flex items-center gap-2 text-sm font-semibold text-red-500 hover:text-red-400 transition-colors"
+                  className={`flex items-center gap-2 text-sm font-semibold ${theme.cta} transition-colors`}
                   onClick={(e) => { e.stopPropagation(); onNavigate(product.path); }}
                 >
                   Explore <ArrowRight size={14} />
                 </motion.button>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent ${theme.bottomLine} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
             </motion.div>
-          ))}
+            );
+          })}
 
           {/* Coming Soon */}
           <motion.div
