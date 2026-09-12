@@ -3,10 +3,12 @@ import React from 'react';
 import { SERVICES, INDUSTRIES } from '../constants';
 import { Card, Button, Badge, GlowingCard } from '../components/ui';
 import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import { ServicesPageSEO } from '../components/seo';
 
 export const ServicesPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => {
   return (
     <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300">
+      <ServicesPageSEO />
       {/* Header */}
       <div className="container mx-auto px-6 mb-20">
         <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6">Our Services</h1>

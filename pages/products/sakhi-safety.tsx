@@ -6,6 +6,7 @@ import {
   ChevronRight, Star, Download, CheckCircle,
   AlertCircle, Clock, Eye, Smartphone, Volume2, PhoneCall
 } from 'lucide-react';
+import { SakhiSafetyPageSEO } from '../../components/seo';
 
 interface SakhiLandingProps {
   onNavigate: (path: string) => void;
@@ -207,6 +208,7 @@ const SakhiLandingPage: React.FC<SakhiLandingProps> = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white overflow-x-hidden transition-colors duration-300">
+      <SakhiSafetyPageSEO />
       {/* ──── HERO ──────────────────────────────────────────────── */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Radial red glow background */}

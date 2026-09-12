@@ -5,6 +5,7 @@ import { SERVICE_PAGES_CONTENT, ServicePageData } from '../../constants';
 import { CheckCircle2, ArrowRight, XCircle, AlertCircle, Sparkles, User } from 'lucide-react';
 import { FlipWords } from '../../components/ui/flip-words';
 import { useRouter } from 'next/router';
+import { SEO } from '../../components/seo';
 
 // Map of mockup types to components
 const MOCKUPS = {
@@ -67,10 +68,15 @@ export default function ServiceDetailPage({ onNavigate }: { onNavigate: (path: s
   const { slug } = router.query;
   
   const data: ServicePageData | undefined = slug ? SERVICE_PAGES_CONTENT[slug as string] : undefined;
-  
+
   if (!data) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-black text-slate-900 dark:text-white">
+        <SEO
+          title="Our Services | LexonIT"
+          description="Explore LexonIT's AI-powered services for IT providers — project management, scheduling, and workflow automation tools that handle the busywork for your team."
+          canonical={`https://lexonit.com/services/${typeof slug === 'string' ? slug : ''}`}
+        />
         <h1 className="text-2xl font-bold mb-4">Service Not Found</h1>
         <Button onClick={() => onNavigate('/services')}>Back to Services</Button>
       </div>
@@ -82,7 +88,12 @@ export default function ServiceDetailPage({ onNavigate }: { onNavigate: (path: s
 
   return (
     <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
-      
+      <SEO
+        title={`${data.title} | LexonIT Services for IT Providers`}
+        description={`${data.subtitle} ${data.description}`}
+        canonical={`https://lexonit.com/services/${slug}`}
+      />
+
       {/* Hero Section */}
       <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="relative pt-32 pb-20 overflow-hidden">
          {/* Dynamic Background Gradients */}

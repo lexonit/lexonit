@@ -6,6 +6,7 @@ import {
   RefreshCw, Mail, ChevronRight, AlertTriangle, Smartphone,
   Key, Globe, Trash2, CheckCircle, ExternalLink, Building2
 } from 'lucide-react';
+import { SakhiPrivacyPageSEO } from '../components/seo';
 
 const LAST_UPDATED = 'June 22, 2025';
 const APP_ID = 'com.sakhisafety.app';
@@ -27,6 +28,7 @@ const SakhiPrivacyPage = ({ onNavigate }: { onNavigate: (path: string) => void }
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300">
+      <SakhiPrivacyPageSEO />
       {/* Background blobs */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-96 h-96 bg-rose-400/10 dark:bg-rose-600/10 rounded-full blur-[128px]" />

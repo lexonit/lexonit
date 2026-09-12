@@ -1,0 +1,41 @@
+# LexonIT
+
+> LexonIT is an AI & web development agency based in Business Bay, Dubai, UAE. It builds AI chatbots, Next.js/React web applications, business automation, and IT consulting solutions for startups and SMEs, and also develops its own in-house software products.
+
+## What LexonIT Offers
+
+- AI chatbots and conversational agents (WhatsApp integration, natural language processing, booking automation)
+- Next.js / React web development (server-side rendering, high-performance websites)
+- Business automation (CRM sync, automated invoicing, lead nurturing, workflow automation)
+- Custom AI models fine-tuned on business data
+- IT consulting for IT service providers, including AI project management and scheduling tools
+- eCommerce solutions and mobile applications (iOS & Android, React Native)
+
+## In-House Products
+
+- **Sakhi Safety** — a personal safety app for iOS and Android with instant SOS alerts, live location sharing, trusted emergency contacts, and a safety check timer.
+- **AutoHirU** — an AI-powered job search tool that auto-applies to jobs on a user's behalf across LinkedIn, Naukri, Indeed, and other job platforms, with AI resume matching and application tracking.
+
+## Client Work
+
+- **JKS Learning** — a career-ready IT upskilling platform offering structured Full Stack (Java, .NET, Frontend), Cloud, and SAP training, with anti-skip video protection and adaptive AI mock interviews.
+- **TechieMaya** — a technology consulting company delivering Project-Management-as-a-Service (PMaaS) and IT solutions that help growing businesses automate routine tasks.
+- **Mr LAD** — an AI Sales Employee platform that prospects, holds conversations, and books meetings autonomously across LinkedIn, WhatsApp, Instagram, email, and voice.
+- **Dycnity** — an IT consulting and digital transformation firm helping organizations modernize with enterprise-grade technology solutions.
+- **Infiniti Solars** — South India's leading residential and commercial rooftop solar installer, based in Nellore District, Andhra Pradesh.
+
+## Contact
+
+- Email: hr@lexonit.com
+- Phone: +971 58 823 0538
+- Address: Business Bay, Dubai, UAE
+
+## Key Pages
+
+- Homepage: https://lexonit.com/
+- Services: https://lexonit.com/services
+- Products: https://lexonit.com/products
+- Clients: https://lexonit.com/clients
+- Careers: https://lexonit.com/career
+- About: https://lexonit.com/about
+- Contact: https://lexonit.com/contact

@@ -103,6 +103,32 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>LexonIT - Smart IT Solutions</title>
         <link rel="icon" type="image/svg+xml" href="/logo/logo-dark.svg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'LexonIT',
+              url: 'https://lexonit.com',
+              logo: 'https://lexonit.com/logo/logo-dark.svg',
+              email: 'hr@lexonit.com',
+              telephone: '+971 58 823 0538',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: 'Business Bay',
+                addressLocality: 'Dubai',
+                addressCountry: 'AE',
+              },
+              sameAs: [
+                'https://www.linkedin.com/company/105326567/',
+                'https://x.com/LEXONITSOLUTION',
+                'https://www.instagram.com/lexonitsolutions/',
+                'https://www.youtube.com/@lexonitsolutions',
+              ],
+            }),
+          }}
+        />
       </Head>
 
       {/* Navigation (fixed) */}

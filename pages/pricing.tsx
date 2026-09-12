@@ -6,6 +6,7 @@ import { Button, Card, Badge } from '../components/ui';
 import { Check, HelpCircle, Zap, Minus, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getCurrencyForCountry, formatPriceInCurrency } from '../lib/currency';
+import { PricingPageSEO } from '../components/seo';
 
 export const getServerSideProps: GetServerSideProps = async ({ req, query }) => {
   // Vercel adds this header at the edge for every request it proxies.
@@ -62,7 +63,8 @@ export const PricingPage = ({ onNavigate, countryCode }: { onNavigate: (path: st
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300 font-sans">
-      
+      <PricingPageSEO />
+
       {/* Hero */}
       <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="container mx-auto px-6 text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">

@@ -2,6 +2,7 @@ import { GlowingCard } from "@/components/ui";
 import { TEAM } from "@/constants";
 import { User } from "lucide-react";
 import { motion } from "framer-motion";
+import { AboutPageSEO } from "@/components/seo";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -19,6 +20,7 @@ const staggerContainer = {
 
 const AboutPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => (
   <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300 overflow-hidden">
+    <AboutPageSEO />
     <div className="container mx-auto px-6">
       <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-8">We Are LexonIT</h1>

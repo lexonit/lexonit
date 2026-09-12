@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Button, Input, Card, Label } from '../components/ui';
 import { Mail, MapPin, Phone, Send, Loader2 } from 'lucide-react';
 import { WhatsAppIcon } from '../components/layout';
+import { ContactPageSEO } from '../components/seo';
 
 export const ContactPage = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -49,6 +50,7 @@ export const ContactPage = () => {
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300">
+      <ContactPageSEO />
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Info */}

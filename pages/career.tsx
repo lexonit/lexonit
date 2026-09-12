@@ -6,6 +6,7 @@ import {
   CheckCircle, ArrowRight, Code2, Server, TrendingUp, Mail, MessageCircle,
   MapPin, Clock, Briefcase, ChevronDown, Coffee, Globe2
 } from 'lucide-react';
+import { CareerPageSEO } from '../components/seo';
 
 const HR_WHATSAPP_NUMBER = '917780181920';
 const HR_PHONE_DISPLAY = '+91 77801 81920';
@@ -288,6 +289,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black transition-colors duration-300 overflow-x-hidden">
+      <CareerPageSEO />
       {/* ──── HERO ──────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-16 pb-24">
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

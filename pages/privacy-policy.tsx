@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Eye, Database, Lock, Globe, Users, Bell, RefreshCw, Mail, ChevronRight } from 'lucide-react';
+import { PrivacyPolicyPageSEO } from '../components/seo';
 
 interface PrivacyPolicyPageProps {
   onNavigate: (path: string) => void;
@@ -227,6 +228,7 @@ const PolicySection = ({ section, index }: { section: typeof sections[0]; index:
 const PrivacyPolicyPage = ({ onNavigate }: PrivacyPolicyPageProps) => {
   return (
     <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300">
+      <PrivacyPolicyPageSEO />
       {/* Background decorative blobs */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-violet-400/10 dark:bg-violet-600/10 rounded-full blur-[128px]" />

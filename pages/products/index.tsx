@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { ArrowRight, Star, Smartphone, Globe } from 'lucide-react';
+import { ProductsPageSEO } from '../../components/seo';
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -77,6 +78,7 @@ const PRODUCTS = [
 const ProductsPage: React.FC<ProductsPageProps> = ({ onNavigate }) => {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black transition-colors duration-300 overflow-x-hidden">
+      <ProductsPageSEO />
       {/* Background blobs */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-violet-400/10 dark:bg-violet-600/10 rounded-full blur-[140px]" />

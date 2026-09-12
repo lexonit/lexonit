@@ -4,6 +4,7 @@ import { BLOG_POSTS } from '../constants';
 import { Button, Card, Badge, GlowingCard, Input } from '../components/ui';
 import { Calendar, Clock, ArrowRight, User, Tag, Search, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { BlogPageSEO } from '../components/seo';
 
 export const BlogPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => {
   const [filter, setFilter] = useState('All');
@@ -28,7 +29,8 @@ export const BlogPage = ({ onNavigate }: { onNavigate: (path: string) => void })
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 dark:bg-black min-h-screen transition-colors duration-300">
-      
+      <BlogPageSEO />
+
       {/* Header */}
       <div className="container mx-auto px-6 mb-12">
         <Badge variant="purple" className="mb-4">Insights & Updates</Badge>

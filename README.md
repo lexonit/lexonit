@@ -148,7 +148,7 @@ The integrated chat widget uses OpenAI's GPT-4o-mini model to answer customer qu
 - **Social Media**: 
   - [Twitter/X](https://x.com/LEXONITSOLUTION)
   - [Instagram](https://www.instagram.com/lexonitsolutions/)
-  - [YouTube](https://www.youtube.com/@lexonitservices)
+  - [YouTube](https://www.youtube.com/@lexonitsolutions)
   - [LinkedIn](https://www.linkedin.com/company/105326567)
 
 ## 🚀 Deployment
