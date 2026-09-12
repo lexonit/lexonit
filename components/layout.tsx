@@ -253,7 +253,7 @@ export const Footer = ({ onNavigate }: { onNavigate: (path: string) => void }) =
               <a href="https://www.instagram.com/lexonitsolutions/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-violet-600 dark:hover:bg-violet-600 hover:text-white dark:hover:text-white transition-all">
                 <Instagram size={16} />
               </a>
-              <a href="https://www.youtube.com/@lexonitservices" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-violet-600 dark:hover:bg-violet-600 hover:text-white dark:hover:text-white transition-all">
+              <a href="https://www.youtube.com/@lexonitsolutions" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-violet-600 dark:hover:bg-violet-600 hover:text-white dark:hover:text-white transition-all">
                 <Youtube size={16} />
               </a>
             </div>
