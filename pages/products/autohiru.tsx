@@ -6,6 +6,7 @@ import {
   ArrowRight, Star, CheckCircle, Users, RefreshCw,
   TrendingUp, Chrome, Send, ShieldCheck, Briefcase, MousePointerClick
 } from 'lucide-react';
+import { AutoHiruPageSEO } from '../../components/seo';
 
 interface AutoHirULandingProps {
   onNavigate: (path: string) => void;
@@ -331,6 +332,7 @@ const AutoHirULandingPage: React.FC<AutoHirULandingProps> = ({ onNavigate }) => 
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white overflow-x-hidden transition-colors duration-300">
+      <AutoHiruPageSEO />
       {/* ──── HERO ──────────────────────────────────────────────── */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(59,130,246,0.25),transparent)]" />

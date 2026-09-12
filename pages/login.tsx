@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button, Input, Label, Card } from '../components/ui';
 import { Eye, EyeOff, Github, Mail, Chrome } from 'lucide-react';
+import { LoginPageSEO } from '../components/seo';
 
 export const LoginPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,6 +19,7 @@ export const LoginPage = ({ onNavigate }: { onNavigate: (path: string) => void }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-black px-6 transition-colors duration-300">
+      <LoginPageSEO />
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-6 cursor-pointer" onClick={() => onNavigate('/')}>

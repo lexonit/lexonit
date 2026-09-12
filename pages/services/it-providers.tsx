@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button, Card, Badge, GlowingCard } from '../../components/ui';
 import { AI_EMPLOYEES, IT_TESTIMONIALS, IT_FEATURES_GRID } from '../../constants';
+import { ITProvidersPageSEO } from '../../components/seo';
 import { 
   CheckCircle2, Zap, ArrowRight, Layout, Calendar, 
   FileText, BarChart3, Search, XCircle, AlertCircle, 
@@ -100,7 +101,8 @@ export const ITProvidersPage = ({ onNavigate, initialTab }: { onNavigate: (path:
 
   return (
     <div className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white pt-20 transition-colors duration-300">
-      
+      <ITProvidersPageSEO />
+
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-0 pointer-events-none"></div>
