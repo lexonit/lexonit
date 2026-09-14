@@ -635,6 +635,44 @@ export const ProductItem = ({
   );
 };
 
+export const ProductLogoItem = ({
+  title,
+  href,
+  src,
+  onClick,
+  imgFit = 'cover'
+}: {
+  title: string;
+  href: string;
+  src: string;
+  onClick?: () => void;
+  imgFit?: 'cover' | 'contain';
+}) => {
+  return (
+    <a
+      href={href}
+      onClick={(e) => {
+        if(onClick) {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+      title={title}
+      className="group flex items-center justify-center rounded-xl border border-slate-100 dark:border-white/10 shadow-sm hover:shadow-md hover:border-violet-200 dark:hover:border-violet-400/30 hover:bg-slate-50 dark:hover:bg-white/5 transition-all h-[80px] w-[110px] bg-white dark:bg-slate-900"
+    >
+      <div className={`h-full w-full rounded-xl overflow-hidden ${imgFit === 'contain' ? 'flex items-center justify-center p-3' : ''}`}>
+        <img
+          src={src}
+          width={110}
+          height={80}
+          alt={title}
+          className={imgFit === 'contain' ? 'max-h-full max-w-full object-contain' : 'w-full h-full rounded-xl object-cover group-hover:scale-105 transition-transform'}
+        />
+      </div>
+    </a>
+  );
+};
+
 export const HoveredLink = ({ children, href, onClick, className, ...rest }: any) => {
   return (
     <a

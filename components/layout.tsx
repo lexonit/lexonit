@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { NAV_ITEMS } from '../constants';
-import { Button, SparklesCore, Menu, MenuItem, ProductItem, HoveredLink } from './ui';
+import { Button, SparklesCore, Menu, MenuItem, ProductItem, ProductLogoItem, HoveredLink } from './ui';
 import { Menu as MenuIcon, X, Sun, Moon, ChevronDown, Mail, ArrowRight, Twitter, Linkedin, Instagram, LogIn, Youtube } from 'lucide-react';
 
 interface NavbarProps {
@@ -91,22 +91,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPath, theme, 
                     </MenuItem>
 
                     <MenuItem setActive={setActive} active={active} item="Products" isActive={currentPath.startsWith('/products')}>
-                        <div className="text-sm p-4 min-w-[260px]">
-                            <ProductItem
-                                title="Sakhi Safety"
-                                href="/products/sakhi-safety"
-                                src="/sakhi-safety-app.png"
-                                description="Your all-in-one personal safety companion app."
-                                onClick={() => handleNav('/products/sakhi-safety')}
-                            />
-                            <ProductItem
-                                title="AutoHirU"
-                                href="/products/autohiru"
-                                src="/autohiru-icon.png"
-                                imgFit="contain"
-                                description="AI auto-apply across LinkedIn, Naukri & more."
-                                onClick={() => handleNav('/products/autohiru')}
-                            />
+                        <div className="text-sm p-4">
+                            <div className="flex gap-3">
+                                <ProductLogoItem
+                                    title="Sakhi Safety"
+                                    href="/products/sakhi-safety"
+                                    src="/sakhi-safety-app.png"
+                                    onClick={() => handleNav('/products/sakhi-safety')}
+                                />
+                                <ProductLogoItem
+                                    title="AutoHirU"
+                                    href="/products/autohiru"
+                                    src="/autohiru-icon.png"
+                                    imgFit="contain"
+                                    onClick={() => handleNav('/products/autohiru')}
+                                />
+                            </div>
                             <div className="mt-3 pt-3 border-t border-slate-100 dark:border-white/10">
                                 <HoveredLink onClick={() => handleNav('/products')} href="/products">View All Products →</HoveredLink>
                             </div>
