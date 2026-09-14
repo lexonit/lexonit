@@ -73,9 +73,7 @@ const AboutPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => (
           {TEAM.map((member, index) => (
             <motion.div key={index} variants={{ initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 } }} transition={{ duration: 0.5 }}>
               <GlowingCard>
-                <div className="h-32 -mx-6 -mt-6 overflow-hidden bg-gradient-to-r from-violet-500/10 to-indigo-500/10 dark:from-violet-900/20 dark:to-indigo-900/20 relative mb-6">
-                </div>
-                <div className="text-center relative -mt-16">
+                <div className="text-center relative">
                   <div className="w-32 h-32 mx-auto rounded-full border-4 border-white dark:border-slate-900 overflow-hidden shadow-md mb-4 bg-white dark:bg-slate-800">
                     {member.image ? (
                       <img 
