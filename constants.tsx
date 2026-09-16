@@ -176,16 +176,34 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export const TEAM: TeamMember[] = [
   {
-    name: 'Anshul Bhaduria',
-    role: 'Software Engineer',
-    bio: 'Full-stack developer with expertise in Next.js, React, and AI integration. Passionate about building scalable web applications.',
-    image: '/team/Anshul Bhaduria.jpg'
+    name: 'Davood Khan',
+    role: 'AI Full Stack Developer',
+    bio: 'Full-stack developer blending AI capabilities with modern web development to ship end-to-end intelligent products.',
+    image: '/team/Davood Khan.png'
+  },
+  {
+    name: 'Shaik Sadhik',
+    role: 'AI Full Stack Engineer',
+    bio: 'Mobile app developer with React Native expertise. Creates cross-platform solutions for iOS and Android.',
+    image: '/team/Shaik Sadhik.png'
   },
   {
     name: 'Imran',
     role: 'Software Engineer',
     bio: 'Backend specialist focused on scalable architectures and API development. Expert in Node.js and microservices.',
     image: '/team/BeastImran.jpg'
+  },
+  {
+    name: 'Asin Shaik',
+    role: 'AI Engineer & Scrum Master',
+    bio: 'AI engineer who also drives sprint planning and cross-functional coordination as the team\'s Scrum Master.',
+    image: '/team/Asin Shaik.png'
+  },
+  {
+    name: 'Anshul Bhaduria',
+    role: 'Software Engineer',
+    bio: 'Full-stack developer with expertise in Next.js, React, and AI integration. Passionate about building scalable web applications.',
+    image: '/team/Anshul Bhaduria.jpg'
   },
   {
     name: 'Harsha Vardhan',
@@ -206,22 +224,22 @@ export const TEAM: TeamMember[] = [
     image: '/team/ravi.jpeg'
   },
   {
-    name: 'Shaik Sadhik',
-    role: 'Software Engineer',
-    bio: 'Mobile app developer with React Native expertise. Creates cross-platform solutions for iOS and Android.',
-    image: '/team/Shaik Sadhik.jpeg'
-  },
-  {
     name: 'Suraj Baride',
     role: 'Software Engineer',
     bio: 'Cloud solutions architect and automation expert. Specializes in AWS, Azure, and CI/CD pipelines.',
     image: '/team/suraj baride.jpeg'
   },
   {
-    name: 'Asin Shaik',
-    role: 'AI Engineer & Scrum Master',
-    bio: 'AI engineer who also drives sprint planning and cross-functional coordination as the team\'s Scrum Master.',
-    image: '/team/Asin Shaik.png'
+    name: 'Kaveri Edala',
+    role: 'AI Engineer',
+    bio: 'AI engineer focused on building and fine-tuning intelligent models that power real-world product features.',
+    image: '/team/Kaveri Edala.png'
+  },
+  {
+    name: 'Komal Dharma Rakhunde',
+    role: 'AI Engineer',
+    bio: 'AI engineer working across the ML pipeline, from data preparation to model deployment for production use cases.',
+    image: '/team/Komal Dharma Rakhunde.jpg'
   }
 ];
 
