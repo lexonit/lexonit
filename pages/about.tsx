@@ -42,7 +42,7 @@ const AboutPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => (
       </motion.div>
 
       {/* CEO Section */}
-      <motion.div {...fadeUp} className="mb-24 flex flex-col md:flex-row items-center gap-12 bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-white/10 shadow-sm">
+      {/* <motion.div {...fadeUp} className="mb-24 flex flex-col md:flex-row items-center gap-12 bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-white/10 shadow-sm">
         <div className="w-full md:w-1/3 flex justify-center">
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-slate-50 dark:border-slate-800 shadow-xl">
             <img 
@@ -64,7 +64,7 @@ const AboutPage = ({ onNavigate }: { onNavigate: (path: string) => void }) => (
             </p>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Team Section */}
       <motion.div {...fadeUp} className="mb-20">
